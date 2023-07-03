@@ -5,8 +5,31 @@
 <title>検索店名一覧</title>
 </head>
 <body>
-	<h3>検索店舗一覧</h3>
-	
+	<h1>Lunch検索</h1>
+	<h3>条件検索</h3>
+	<form th:action="@{/}" method="post" th:object="">
+	<tr>
+		<td>店舗名</td>
+		<td><span th:text="${}"></span></td>
+	</tr>
+	<tr>
+		<td>店内orテイクアウト</td>
+		<td><sapn th:text="${.rolename}"></sapn></td>
+	</tr>
+	<tr>
+		<td>ジャンル</td>
+		<td><sapn th:text="${userForm.rolename}"></sapn></td>
+	</tr>
+	<tr>	
+		<th>料理名</th>
+		<input type="text" name="cooking"/>
+	</tr>
+	<tr>
+		<td>Calからの距離</td>
+		<td><span th:text="${}"></span></td>
+	</tr>
+	<button type="submit">検索</button>
+	</form>
 
 </body>
 </html>
