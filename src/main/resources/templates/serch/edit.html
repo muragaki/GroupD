@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Page</title>
+</head>
+<body>
+	<h3>店舗編集画面</h3><h4>店舗名</h4>
+	<table>
+	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
+	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
+	<tbody>
+		<label for="address">住所　　　　</label>
+		<input type="text" id="address" name="address" th:value="${editForm.address}"><br>
+		<label for="tel">電話番号　　</label>
+		<input type="text" id="tel" name="tel" th:value="${editForm.tel}"><br>
+		<label for="businesshour">営業時間　　</label>
+		<input type="text" id="businesshour" name="businesshour" th:value="${editForm.businesshour}"><br>
+		<label for="service">サービス　　</label>
+		<input type="text" id="service" name="service" th:value="${editForm.service}"><br>
+		<label for="genre">ジャンル　　</label>
+		<input type="text" id="genre" name="genre" th:value="${editForm.genre}"><br>
+		<label for="takeout">テイクアウト</label>
+		<input type="text" id="takeout" name="takeout" th:value="${editForm.takeout}"><br>
+		<label for="distance">距離　　　　</label>
+		<input type="text" id="distance" name="distance" th:value="${editForm.distance}"><br>
+		<button type="submit">登録</button>
+	</tbody>
+	</table>
+</body>
+</html>
