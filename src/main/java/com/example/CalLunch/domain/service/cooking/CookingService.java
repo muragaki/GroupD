@@ -3,10 +3,12 @@ package com.example.CalLunch.domain.service.cooking;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.repository.cooking.CookingRepository;
 
+@Service
 public class CookingService {
 	
 	@Autowired
