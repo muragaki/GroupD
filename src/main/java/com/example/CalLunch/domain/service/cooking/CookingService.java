@@ -23,4 +23,8 @@ public class CookingService {
 	public List<Cooking> finditem(Integer shopId) {
 		return cookingRepository.findByShopIdOrderByCookingIdAsc(shopId);
 	}
+	
+	public List<Cooking> findCooking() {
+		return cookingRepository.findAllByOrderByCookingId();
+	}
 }

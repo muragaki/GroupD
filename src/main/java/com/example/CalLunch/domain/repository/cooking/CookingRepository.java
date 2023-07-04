@@ -9,7 +9,7 @@ import com.example.CalLunch.domain.model.Cooking;
 
 
 public interface CookingRepository extends JpaRepository<Cooking, Integer>{
-	List<CookingRepository> findAllByOrderByCookingId();
+	List<Cooking> findAllByOrderByCookingId();
 	Cooking readByCookingIdAndShopId(Integer cookingId, Integer shopId);
 	List<Cooking> findByShopIdOrderByCookingIdAsc(Integer shopId);
 
