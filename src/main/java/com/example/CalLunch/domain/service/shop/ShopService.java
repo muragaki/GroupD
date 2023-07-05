@@ -15,7 +15,7 @@ public class ShopService {
 	ShopRepository shopRepository;
 	
 	public void save(Shop shop) {
-		if(shopRepository.readByItemcodeAndShopId(shop.getShopName(), shop.getShopId()) == null) {
+		if(shopRepository.readByShopNameAndShopId(shop.getShopName(), shop.getShopId()) == null) {
 			shopRepository.save(shop);
 		}else {
 		}
@@ -26,14 +26,14 @@ public class ShopService {
 	}
 	
 	public List<Shop> findShop(){
-		return shopRepository.findAllByShopId();
+		return shopRepository.findAll();
 	}
 	
 	public void update(Shop shop) {
 		if(shop.getShopId() == 0) {
 			shopRepository.deleteById(shop.getShopId());
 		}else {
-			Shop tempshopid = shopRepository.findAllByShopId().get(0);
+			Shop tempshopid = shopRepository.findByShopId(shop.getShopId());//.get(0);
 			tempshopid.setShopId(shop.getShopId());
 			shopRepository.save(tempshopid);
 			
