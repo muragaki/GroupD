@@ -18,12 +18,13 @@ public class MapPinExample extends JFrame {
 
     private JPanel panel;
     private JLabel label;
+    private JButton pinButton = null; //追加7/5
 
     public MapPinExample() {
         super("Map Pin Example");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
-        panel.setPreferredSize(new Dimension(400, 300));
+        panel.setPreferredSize(new Dimension(950, 480));
         add(panel);
 
         ImageIcon mapIcon = new ImageIcon("image/image.jpg"); // 画像ファイルのパス
@@ -45,6 +46,10 @@ public class MapPinExample extends JFrame {
 
     private void drawPin(int x, int y) {
         ImageIcon pinIcon = new ImageIcon("image/pin.png"); // ピン画像ファイルのパス
+//        前回指定したピンがあれば削除する
+        if(pinButton != null) {
+        	label.remove(pinButton);
+        }
         JButton button = new JButton(pinIcon);
         button.setBorderPainted(false);
         button.setContentAreaFilled(false);
@@ -57,6 +62,7 @@ public class MapPinExample extends JFrame {
             }
         });
         label.add(button);
+        pinButton = button;
         button.setBounds(x - 5, y - 20, pinIcon.getIconWidth(), pinIcon.getIconHeight());
         label.repaint();
     }
