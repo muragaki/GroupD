@@ -23,5 +23,8 @@ public class Shop {
 	private Integer phone;		//電話番号
 	private Integer takeOut;	//店内かテイクアウトか
 	private Integer distance;	//距離
+	private Integer mapX;       //座標X
+	private Integer mapY;       //座標Y
+	
 
 }
