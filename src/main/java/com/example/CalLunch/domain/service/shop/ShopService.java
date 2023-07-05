@@ -25,20 +25,15 @@ public class ShopService {
 		shopRepository.delete(shop);
 	}
 	
-	public List<Shop> findItem(Integer shopId){
-		return shopRepository.findAllByShopId(shopId);
-	}
-	
-	
-	public List<Shop> findAll(Integer shopId){
-		return shopRepository.findAllByShopId(shopId);
+	public List<Shop> findShop(){
+		return shopRepository.findAllByShopId();
 	}
 	
 	public void update(Shop shop) {
 		if(shop.getShopId() == 0) {
 			shopRepository.deleteById(shop.getShopId());
 		}else {
-			Shop tempshopid = shopRepository.findAllByShopId(shop.getShopId()).get(0);
+			Shop tempshopid = shopRepository.findAllByShopId().get(0);
 			tempshopid.setShopId(shop.getShopId());
 			shopRepository.save(tempshopid);
 			

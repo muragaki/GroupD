@@ -1,11 +1,11 @@
-package com.example.CalLunch.app;
+package com.example.CalLunch.app.shop;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.CalLunch.domain.repository.ShopService;
+import com.example.CalLunch.domain.service.shop.ShopService;
 
 @Controller
 public class ShopController {
