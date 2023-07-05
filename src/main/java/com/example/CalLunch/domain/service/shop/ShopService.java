@@ -1,4 +1,4 @@
-package com.example.CalLunch.domain.repository;
+package com.example.CalLunch.domain.service.shop;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.CalLunch.domain.model.Shop;
+import com.example.CalLunch.domain.repository.shop.ShopRepository;
 
 @Service
 public class ShopService {

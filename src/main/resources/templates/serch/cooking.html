@@ -7,26 +7,16 @@
 <body>
 	<h1>Lunch検索</h1>
 	<h3>条件検索</h3>
-	<form th:action="@{/}" method="post" th:object="">
-	<tr>
-		<td>店舗名</td>
-		<td><span th:text="${}"></span></td>
-	</tr>
-	<tr>
-		<td>店内orテイクアウト</td>
-		<td><sapn th:text="${.rolename}"></sapn></td>
-	</tr>
-	<tr>
-		<td>ジャンル</td>
-		<td><sapn th:text="${userForm.rolename}"></sapn></td>
-	</tr>
-	<tr>	
-		<th>料理名</th>
-		<input type="text" name="cooking"/>
-	</tr>
-	<tr>
-		<td>Calからの距離</td>
-		<td><span th:text="${}"></span></td>
+	<form th:action="@{/shopserch}" method="post" th:object="shopForm">
+	<tr th:each="shop : ${shopList}">
+		<label for="shopname">店舗名　　　　　　</label>
+		<input type="text" id="shopname" name="shopname" th:value="${shopForm.shopName}"><br>
+		<label for="takeOut">店内orテイクアウト</label>
+		<input type="text" id="takeOut" name="takeOut" th:value="${shopForm.takeOut}"><br>
+		<label for="genre">ジャンル　　　　　</label>
+		<input type="text" id="genre" name="genre" th:value="${shopForm.genre}"><br>
+		<label for="distance">Ｃａｌからの距離　</label>
+		<input type="text" id="distance" name="distance" th:value="${shopForm.distance}"><br>
 	</tr>
 	<button type="submit">検索</button>
 	</form>

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.CalLunch.domain.model.Comment;
 
 public interface CommentRepository extends JpaRepository<Comment,Integer>{
-	List<Comment> findAllByOrederByShopId();
+	List<Comment> findAllByOrderByShopId();
 	
 
 }

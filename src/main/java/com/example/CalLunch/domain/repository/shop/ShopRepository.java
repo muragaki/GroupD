@@ -1,4 +1,4 @@
-package com.example.CalLunch.domain.repository;
+package com.example.CalLunch.domain.repository.shop;
 
 import java.util.List;
 
