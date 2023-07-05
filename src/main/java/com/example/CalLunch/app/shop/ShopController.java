@@ -17,6 +17,6 @@ public class ShopController {
 	public String detail(Model model) {
 
 		model.addAttribute("detail", shopService.findShop());
-		return "detail";
+		return "shop/detail";
 	}
 }
