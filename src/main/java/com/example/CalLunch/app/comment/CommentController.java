@@ -11,11 +11,11 @@ import com.example.CalLunch.domain.service.comment.CommentService;
 public class CommentController {
 	
 	@Autowired
-	CommentService commentservice;
+	CommentService commentService;
 	
 	@GetMapping("comment")
 	String comment(Model model) {
-		model.addAttribute("comment",commentService.findComent());
+		model.addAttribute("comment", commentService.findComment());
 		return "comment/comment";
 	}
 
