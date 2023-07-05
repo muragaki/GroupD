@@ -1,5 +1,7 @@
 package com.example.CalLunch.domain.service.comment;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,9 @@ public class CommentService {
 	public void save(Comment comment) {
 		commentRepository.save(comment);
 	}
+	public List<Comment> findComment() {
+		return commentRepository.findAllByOrderByShopId();
+	}
+
 
 }
