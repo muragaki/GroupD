@@ -12,9 +12,20 @@
 		<label for="shopname">店舗名　　　　　　</label>
 		<input type="text" id="shopname" name="shopname" th:value="${shopForm.shopName}"><br>
 		<label for="takeOut">店内orテイクアウト</label>
-		<input type="text" id="takeOut" name="takeOut" th:value="${shopForm.takeOut}"><br>
+		<select name="example" required>
+		<option value="">選択してください</option>
+		<option>店内＆テイクアウト</option>
+		<option>店内</option>
+		<option>テイクアウト</option>
+		</select><br>
 		<label for="genre">ジャンル　　　　　</label>
-		<input type="text" id="genre" name="genre" th:value="${shopForm.genre}"><br>
+		<select name="genre" required>
+		<option value="">選択してください</option>
+		<option>和食</option>
+		<option>洋食</option>
+		<option>中華</option>
+		<option>その他</option>
+		</select><br>
 		<label for="distance">Ｃａｌからの距離　</label>
 		<input type="text" id="distance" name="distance" th:value="${shopForm.distance}"><br>
 	</tr>
