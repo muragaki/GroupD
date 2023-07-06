@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>店舗詳細</h3><h4>店舗名　<img th:src="@{image/editImage.jpg}"></h4>
+	<h3>店舗詳細</h3><h4>店舗名　<a th:href="@{http://localhost:8080/shopEdit}" ><img th:src="@{editImage.jpg}"></h4></a>
 	<table th:each="shop : ${detail}">
 	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
