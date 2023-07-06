@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.CalLunch.domain.service.shop.ShopService;
 
@@ -18,5 +19,9 @@ public class ShopController {
 
 		model.addAttribute("detail", shopService.findShop());
 		return "shop/detail";
+	}
+	@PostMapping("shopserch")
+	public String serch(Model model) {
+		return "";
 	}
 }

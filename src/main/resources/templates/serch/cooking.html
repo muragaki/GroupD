@@ -7,10 +7,10 @@
 <body>
 	<h1>Lunch検索</h1>
 	<h3>条件検索</h3>
-	<form th:action="@{/shopserch}" method="post" th:object="shopForm">
-	<tr th:each="shop : ${shopList}">
+	<form th:action="@{/shopserch}" method="post" >
+	<tr>
 		<label for="shopname">店舗名　　　　　　</label>
-		<input type="text" id="shopname" name="shopname" th:value="${shopForm.shopName}"><br>
+		<input type="text" id="shopname" name="shopname" value="" required/><br>
 		<label for="takeOut">店内orテイクアウト</label>
 		<select name="example" required>
 		<option value="">選択してください</option>
@@ -24,10 +24,11 @@
 		<option>和食</option>
 		<option>洋食</option>
 		<option>中華</option>
+		<option>韓</option>
 		<option>その他</option>
 		</select><br>
 		<label for="distance">Ｃａｌからの距離　</label>
-		<input type="text" id="distance" name="distance" th:value="${shopForm.distance}"><br>
+		<input type="text" id="distance" name="distance" value="" required/><br>
 	</tr>
 	<button type="submit">検索</button>
 	</form>
