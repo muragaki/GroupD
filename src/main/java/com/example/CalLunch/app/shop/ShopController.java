@@ -22,9 +22,10 @@ public class ShopController {
 		model.addAttribute("detail", shopService.findShop());
 		return "shop/detail";
 	}
-	@PostMapping("shopserch")
-	public String serch(Model model) {
-		return "";
+	
+	@GetMapping("shopEdit")
+	public String showShopEdit() {
+		return "serch/edit";
 	}
 	
 	@GetMapping("top")
