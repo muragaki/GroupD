@@ -26,4 +26,26 @@ public class ShopController {
 	public String serch(Model model) {
 		return "";
 	}
+	
+	@GetMapping("top")
+	public String top(Model model) {
+		model.addAttribute("top", shopService.findShop());
+		return "lunchtop/top";
+	}
+	@PostMapping("register")
+	public String register(Model model) {
+		model.addAttribute("register", shopService.findShop());
+		return "register/register";
+	}
+	
+	@PostMapping("confirmation")
+	public String confirmation(Model model) {
+		return "";
+	}
+	
+	@PostMapping("serch")
+	public String sercher(Model model) {
+		model.addAttribute("serch", shopService.findShop());
+		return "serch/cooking";
+	}
 }
