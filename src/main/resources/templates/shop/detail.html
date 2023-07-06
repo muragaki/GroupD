@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>shop</h1>
+	<h3>店舗詳細</h3><h4>店舗名　<img th:src="@{image/editImage.jpg}"></h4>
+	<table th:each="shop : ${detail}">
+	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
+	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
+	<tbody>
+		<tr>
+			<td th:text="*{shopId}"></td>
+		</tr>
+		<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td>
+		<tr><th>店舗名　　　&emsp;</th><td th:text="${shop.shopName}"></td>
+		<!-- <tr><th>営業時間　　&emsp;</th><td th:text="${shop.hour}"></td>
+		<tr><th>サービス　　&emsp;</th><td th:text="${shop.service}"></td> -->
+		<tr><th>ジャンル　　&emsp;</th><td th:text="${shop.genre}"></td>
+		<tr><th>電話番号　　&emsp;</th><td th:text="${shop.phone}"></td>
+		<tr><th>テイクアウト&emsp;</th><td th:text="${shop.takeOut}"></td>
+		<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td>
+		<tr><th>座標 X　　　&emsp;</th><td th:text="${shop.mapX}"></td>
+		<tr><th>座標 Y　　　&emsp;</th><td th:text="${shop.mapY}"></td>
+	</tbody>
+	</table>
 </body>
 </html>
