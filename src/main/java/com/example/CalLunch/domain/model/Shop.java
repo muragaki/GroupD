@@ -25,6 +25,4 @@ public class Shop {
 	private Integer distance;	//距離
 	private Integer mapX;       //座標X
 	private Integer mapY;       //座標Y
-	
-
 }
