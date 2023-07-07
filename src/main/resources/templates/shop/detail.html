@@ -10,7 +10,7 @@
 =======
 	<h3>店舗詳細</h3><h4>店舗名　
 	
-	<form th:action="@{/shopEdit}" method="post">
+	<form th:action="@{/shopEdit}" method="post" th:object="${shopForm}">
 	<!-- <input type="image" src="@{editImage.jpg}" alt="Submit" name="submitButton"> -->
 	<button type="submit">a</button></form>
 	
@@ -23,7 +23,7 @@
 		<tr>
 			<td th:text="*{shopId}"></td>
 		</tr>
-		<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td>
+		<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}" method="post"></td>
 		<tr><th>店舗名　　　&emsp;</th><td th:text="${shop.shopName}"></td>
 		<!-- <tr><th>営業時間　　&emsp;</th><td th:text="${shop.hour}"></td>
 		<tr><th>サービス　　&emsp;</th><td th:text="${shop.service}"></td> -->

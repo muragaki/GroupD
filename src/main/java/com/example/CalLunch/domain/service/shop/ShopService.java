@@ -39,4 +39,8 @@ public class ShopService {
 			
 		}
 	}
+	
+	public Shop getShopByShopId(Integer shopId) {
+		return shopRepository.findByShopId(shopId);
+	}
 }
