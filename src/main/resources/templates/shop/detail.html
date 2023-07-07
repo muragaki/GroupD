@@ -8,7 +8,13 @@
 <<<<<<< HEAD
 	<h3>店舗詳細</h3><h4>店舗名　<img th:src="@{/image/editImage.jpg}" alt="Image Description"></h4>
 =======
-	<h3>店舗詳細</h3><h4>店舗名　<a th:href="@{http://localhost:8080/shopEdit}" ><img th:src="@{editImage.jpg}"></h4></a>
+	<h3>店舗詳細</h3><h4>店舗名　
+	
+	<form th:action="@{/shopEdit}" method="post">
+	<!-- <input type="image" src="@{editImage.jpg}" alt="Submit" name="submitButton"> -->
+	<button type="submit">a</button></form>
+	
+	<!-- <a th:href="@{${ShopEdit}}" ><img th:src="@{editImage.jpg}"></h4></a> -->
 >>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git
 	<table th:each="shop : ${detail}">
 	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
