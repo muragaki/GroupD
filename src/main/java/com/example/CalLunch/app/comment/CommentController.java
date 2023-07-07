@@ -22,7 +22,7 @@ public class CommentController {
 		return "comment/comment";
 	}
 	
-	@RequestMapping("/comment") 
+	@RequestMapping("/comment")
 
 	    @PostMapping("/post")
 	    public String postComment(
