@@ -23,14 +23,16 @@ public class ShopController {
 	CookingService cookingService; 
 	
 	@GetMapping("detail")
-	public String detail(Model model) {
+	public String Detail(Model model) {
 
 		model.addAttribute("detail", shopService.findShop());
 		return "shop/detail";
 	}
 	
-	@GetMapping("shopEdit")
-	public String showShopEdit() {
+	@PostMapping("shopEdit")
+	public String shopEdit(Model model) {
+		
+		model.addAttribute("shopEdit", shopService.findShop());
 		return "serch/edit";
 	}
 	
