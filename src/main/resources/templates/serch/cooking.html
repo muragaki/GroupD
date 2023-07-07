@@ -12,11 +12,11 @@
 		<label for="shopname">店舗名　　　　　　</label>
 		<input type="text" id="shopname" name="shopname" value="" required/><br>
 		<label for="takeOut">店内orテイクアウト</label>
+		<p>1:両方可　2:店内飲食のみ 3:テイクアウトのみ</p>
 		<select name="example" required>
-		<option value="">選択してください</option>
-		<option>店内＆テイクアウト</option>
-		<option>店内</option>
-		<option>テイクアウト</option>
+		<option value="">1</option>
+		<option>2</option>
+		<option>3</option>
 		</select><br>
 		<label for="genre">ジャンル　　　　　</label>
 		<select name="genre" required>
@@ -24,11 +24,11 @@
 		<option>和食</option>
 		<option>洋食</option>
 		<option>中華</option>
-		<option>韓</option>
+		<option>韓国料理</option>
 		<option>その他</option>
 		</select><br>
 		<label for="distance">Ｃａｌからの距離　</label>
-		<input type="text" id="distance" name="distance" value="" required/><br>
+		<input type="number" id="distance" name="distance"><br>
 	</tr>
 	<button type="submit">検索</button>
 	</form>

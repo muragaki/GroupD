@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <title>Comment</title>
 </head>
-<form>
+<body>
 	<h1>コメント</h1>
+	<form th:action="upload" method="POST" enctype="multipart/form-data">
 		<label for="title">タイトル</label>
-		<input type="text"> 
+		<input type="text" name="title"> 
 		<!-- <label for="item">　　　商品名</label> 
 		<input type="text" -->
 		<label for="evaluation">　　　評価（５段階）</label>
@@ -18,13 +19,11 @@
 			<option value="two">　2　</option>
 			<option value="one">　1　</option>
 		</select><br><br>
-		<textarea style="resize: none;" cols="50" rows="10">
-		</textarea><br><br>
-		<form action="/upload" method="POST" enctype="multipart/form-data">
-			<label for="upload">商品画像添付（任意）</label><br>
-			<input type="file" name="image">
-			</form><br><br>
-			<button type="submit">　投稿する　</button>
-		</form>
+		<textarea style="resize: none;" cols="50" rows="10" name="comment"></textarea><br><br>
+		<label for="upload">商品画像添付（任意）</label><br>
+		<input type="file" name="image">
+		<br><br>
+		<button type="submit">　投稿する　</button>
+	</form>
 </body>
 </html>
