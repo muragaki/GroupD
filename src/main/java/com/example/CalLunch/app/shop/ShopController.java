@@ -95,6 +95,7 @@ public class ShopController {
 	
 	@PostMapping("shopEdit")
 	public String shopEdit(Model model) {
+		model.addAttribute("detail", shopService.findShop());
 		return "serch/edit";
 	}
 }
