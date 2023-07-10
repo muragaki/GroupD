@@ -21,6 +21,10 @@ public class ShopController {
 	@Autowired
 	CookingService cookingService; 
 	
+	/*
+	 * private final ShopRepository shopRepository;
+	 */
+	
 	
 	  @GetMapping("detail")	//詳細画面確認用
 	public String detail(Model model){
