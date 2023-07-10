@@ -97,10 +97,4 @@ public class ShopController {
 	public String shopEdit(Model model) {
 		return "serch/edit";
 	}
-	/*@GetMapping("/page")	//画像アップロード
-	public String getPage(Model model) {
-		String imagePath = "";		//画像ファイルのパス
-		model.addAttribute("imagePath", imagePath);
-		return "page-template";
-	}*/
 }
