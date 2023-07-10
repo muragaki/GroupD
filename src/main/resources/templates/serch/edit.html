@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h3>店舗編集画面</h3><h4>店舗名</h4>
-	<table>roup span="1" style="width:150px; background-color:#F0F8FF">
+	<table roup span="1" style="width:150px; background-color:#F0F8FF">
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
 	<tbody>
 		<label for="address">住所　　　　</label>
@@ -24,7 +24,9 @@
 		<label for="distance">距離　　　　</label>
 		<input type="text" id="distance" name="distance"><br>
 		<!-- <itype="hidden" th:field="*{shop.distance[__${shop.distance}__].shop.distance}" /> -->
-		<h3><span th:text="${name}"></span>ton type="submit">登録</button>
+		<!-- <h3><span th:text="${name}"></span>ton type="submit">登録</button> -->
+		<form th:action="@{/confirmation}" method="post">
+		<button type="submit">確認</button></form>
 	</tbody>
 	</table>
 </body>

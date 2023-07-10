@@ -4,11 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.PathVariable;
-=======
 import org.springframework.web.bind.annotation.ModelAttribute;
->>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.CalLunch.domain.model.Cooking;
@@ -21,26 +17,27 @@ public class ShopController {
 
 	@Autowired
 	ShopService shopService;
-	Shop shop = new Shop();
 	
 	@Autowired
 	CookingService cookingService; 
 	
-	@GetMapping("detail")
+	
+	  @GetMapping("detail")	//PostMappingにする
 	public String detail(Model model){
 
 		model.addAttribute("detail", shopService.findShop());
 		return "shop/detail";
 	}
 	
-	@PostMapping("shopEdit")
+	
+	/*@PostMapping("shopEdit")
 		public String getShopDetails(@PathVariable Integer shopId, Model model) {
 			Shop shop = shopService.getShopByShopId(shopId);
 			String name = shop.getShopName();
 			model.addAttribute("name", name);
 		return "serch/edit";
 	}
-	
+	*/
 	@GetMapping("top")
 	public String top(Model model) {
 		model.addAttribute("top", shopService.findShop());
@@ -93,5 +90,10 @@ public class ShopController {
 	@PostMapping("shopserch")
 	public String shopserch(Model model) {
 		return "shop/detail";
+	}
+	
+	@PostMapping("shopEdit")
+	public String shopEdit(Model model) {
+		return "serch/edit";
 	}
 }

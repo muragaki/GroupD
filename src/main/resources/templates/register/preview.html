@@ -9,16 +9,16 @@
 	<form th:action="@{/preview}" method="POST" th:object="${shopForm}">
 		<table border="1">
 			<tr>
-				<th>店舗名</th>
-				<th>ＣＡＬからの距離</th>
-				<th>ジャンル</th>
-				<th>テイクアウトの可否</th>
-				<th>電話番号</th>
+				<tr><th>店舗名</th>
+				<tr><th>ＣＡＬからの距離</th>
+				<tr><th>ジャンル</th>
+				<tr><th>テイクアウトの可否</th>
+				<tr><th>電話番号</th>
 			</tr>
 			<tr>	
-				<th>商品名</th>
-				<th>価格</th>
-				<th>画像</th>
+				<tr><th>商品名</th>
+				<tr><th>価格</th>
+				<tr><th>画像</th>
 			</tr>
 			<tr th:each="item,stat : ${shopList}" align="center">
 				<td th:text="${item.shopId}"></td>
