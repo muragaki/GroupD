@@ -22,9 +22,10 @@ public class ShopController {
 	CookingService cookingService; 
 	
 	
-	  @GetMapping("detail")	//PostMappingにする
+	  @GetMapping("detail")	//詳細画面確認用
 	public String detail(Model model){
-
+		String imagePath = "restaurant-449952_1280_small.jpg";
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("detail", shopService.findShop());
 		return "shop/detail";
 	}
@@ -96,4 +97,10 @@ public class ShopController {
 	public String shopEdit(Model model) {
 		return "serch/edit";
 	}
+	/*@GetMapping("/page")	//画像アップロード
+	public String getPage(Model model) {
+		String imagePath = "";		//画像ファイルのパス
+		model.addAttribute("imagePath", imagePath);
+		return "page-template";
+	}*/
 }

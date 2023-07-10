@@ -6,7 +6,9 @@
 </head>
 <body>
 	<form th:action="@{/shopEdit}" method="post">
-	<h3>店舗詳細</h3><img src="restaurant-449952_1280_small.jpg" alt="Image Description"><br>
+	<!-- <h3>店舗詳細</h3><img src="restaurant-449952_1280_small.jpg" alt="Image Description"><br> -->
+	<h3>店舗詳細</h3><img th:src="${imagePath}" alt="Image Description"><br>
+
 	<h4>店舗名<h4>
 =======
 	<!-- <h3>店舗詳細</h3><h4>店舗名　</h4> -->

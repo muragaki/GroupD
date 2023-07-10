@@ -6,6 +6,11 @@
 </head>
 <body>
 	<h3>店舗編集画面</h3><h4>店舗名</h4>
+	
+	<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" accept="image/*"><br>
+		<button type="submit">画像をアップロード</button>
+	</form>
 	<table roup span="1" style="width:150px; background-color:#F0F8FF">
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
 	<tbody>
