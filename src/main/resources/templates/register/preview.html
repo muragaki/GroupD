@@ -9,6 +9,7 @@
 	<form th:action="@{/preview}" method="POST" th:object="${shopForm}">
 		<table border="1">
 			<tr>
+<<<<<<< HEAD
 				<th>店舗名</th>
 				<th>ＣＡＬからの距離</th>
 				<th>ジャンル</th>
@@ -17,6 +18,18 @@
 				<th>商品名</th>
 				<th>価格</th>
 				<th>画像</th>
+=======
+				<tr><th>店舗名</th>
+				<tr><th>ＣＡＬからの距離</th>
+				<tr><th>ジャンル</th>
+				<tr><th>テイクアウトの可否</th>
+				<tr><th>電話番号</th>
+			</tr>
+			<tr>	
+				<tr><th>商品名</th>
+				<tr><th>価格</th>
+				<tr><th>画像</th>
+>>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git
 			</tr>
 				<td>
     <input type="text" th:field="*{shopName}" readonly>

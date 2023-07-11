@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.CalLunch.domain.model.Cooking;
@@ -19,26 +18,32 @@ public class ShopController {
 
 	@Autowired
 	ShopService shopService;
-	//Shop shop = new Shop();
 	
 	@Autowired
 	CookingService cookingService; 
 	
-	@GetMapping("detail")
+	/*
+	 * private final ShopRepository shopRepository;
+	 */
+	
+	
+	  @GetMapping("detail")	//詳細画面確認用
 	public String detail(Model model){
-
+		String imagePath = "restaurant-449952_1280_small.jpg";
+		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("detail", shopService.findShop());
 		return "shop/detail";
 	}
 	
-	@PostMapping("shopEdit")
+	
+	/*@PostMapping("shopEdit")
 		public String getShopDetails(@PathVariable Integer shopId, Model model) {
 			Shop shop = shopService.getShopByShopId(shopId);
 			String name = shop.getShopName();
 			model.addAttribute("name", name);
 		return "serch/edit";
 	}
-	
+	*/
 	@GetMapping("top")
 	public String top(Model model) {
 		model.addAttribute("top", shopService.findShop());
@@ -137,5 +142,11 @@ public class ShopController {
 	@PostMapping("shopserch")
 	public String shopserch(Model model) {
 		return "shop/detail";
+	}
+	
+	@PostMapping("shopEdit")
+	public String shopEdit(Model model) {
+		model.addAttribute("detail", shopService.findShop());
+		return "serch/edit";
 	}
 }
