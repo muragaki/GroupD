@@ -11,6 +11,10 @@ import lombok.Data;
 	public class CommentForm {
 		@Valid
 		private ArrayList<Comment> commentList = new ArrayList<>();
-
+		
+		private String commentForm;
+		private String title;
+		private String evaluation;
+		private String image;
 
 }
