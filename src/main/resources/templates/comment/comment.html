@@ -8,7 +8,7 @@
 	<h1>コメント</h1>
 	<form th:action="upload" method="POST" enctype="multipart/form-data" th:object="${commentForm}">
 		<label for="title">タイトル</label>
-		<input type="text" name="title" th:field="*{title}"> 
+		<input type="text" name="title" th:object="${title}"> 
 		<!-- <label for="item">　　　商品名</label> 
 		<input type="text" -->
 		<label for="evaluation">　　　評価（５段階）</label>
