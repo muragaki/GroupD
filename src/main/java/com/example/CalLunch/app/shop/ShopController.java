@@ -33,7 +33,7 @@ public class ShopController {
 	public String detail(Model model){
 		String imagePath = "restaurant-449952_1280_small.jpg";
 		model.addAttribute("imagePath", imagePath);
-		model.addAttribute("detail", shopService.findShop());
+		model.addAttribute("detail", shopService.getShopByShopId(1));
 		return "shop/detail";
 	}
 	
@@ -148,7 +148,7 @@ public class ShopController {
 	
 	@PostMapping("shopEdit")
 	public String shopEdit(Model model) {
-		model.addAttribute("detail", shopService.findShop());
+		model.addAttribute("detail", shopService.getShopByShopId(1));
 		return "serch/edit";
 	}
 	
