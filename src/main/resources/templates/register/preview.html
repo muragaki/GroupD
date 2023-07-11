@@ -8,53 +8,16 @@
 	<h3>確認画面</h3>
 	<form th:action="@{/preview}" method="POST" th:object="${shopForm}">
 		<table border="1">
-			<tr>
-<<<<<<< HEAD
-				<th>店舗名</th>
-				<th>ＣＡＬからの距離</th>
-				<th>ジャンル</th>
-				<th>テイクアウトの可否</th>
-				<th>電話番号</th>
-				<th>商品名</th>
-				<th>価格</th>
-				<th>画像</th>
-=======
-				<tr><th>店舗名</th>
-				<tr><th>ＣＡＬからの距離</th>
-				<tr><th>ジャンル</th>
-				<tr><th>テイクアウトの可否</th>
-				<tr><th>電話番号</th>
-			</tr>
-			<tr>	
-				<tr><th>商品名</th>
-				<tr><th>価格</th>
-				<tr><th>画像</th>
->>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git
-			</tr>
-				<td>
-    <input type="text" th:field="*{shopName}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{distance}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{genre}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{takeOut}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{phone}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{cookingName}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{price}" readonly>
-</td>
-<td>
-    <input type="text" th:field="*{image}" readonly>
-</td>
+			
+				<tr><th>店舗名<input type="text" th:field="*{shopName}" readonly></th></tr>
+				<tr><th>ＣＡＬからの距離<input type="text" th:field="*{distance}" readonly></th></tr>
+				<tr><th>ジャンル<input type="text" th:field="*{genre}" readonly></th></tr>
+				<tr><th>テイクアウトの可否<input type="text" th:field="*{takeOut}" readonly></th></tr>
+				<tr><th>電話番号<input type="text" th:field="*{phone}" readonly></th></tr>
+				<tr><th>商品名<input type="text" th:field="*{cookingName}" readonly></th></tr>
+				<tr><th>価格<input type="text" th:field="*{price}" readonly></th></tr>
+				<tr><th>画像<input type="text" th:field="*{image}" readonly></th></tr>
+				
 			</tr>
 		</table>
 		<button type="submit">登録</button>

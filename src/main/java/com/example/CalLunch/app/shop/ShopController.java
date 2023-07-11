@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
@@ -27,11 +29,11 @@ public class ShopController {
 	 */
 	
 	
-	  @GetMapping("detail")	//詳細画面確認用
+	  @PostMapping("detail")	//詳細画面確認用
 	public String detail(Model model){
 		String imagePath = "restaurant-449952_1280_small.jpg";
 		model.addAttribute("imagePath", imagePath);
-		model.addAttribute("detail", shopService.findShop());
+		model.addAttribute("detail", shopService.getShopByShopId(1));
 		return "shop/detail";
 	}
 	
@@ -146,7 +148,30 @@ public class ShopController {
 	
 	@PostMapping("shopEdit")
 	public String shopEdit(Model model) {
-		model.addAttribute("detail", shopService.findShop());
+		model.addAttribute("detail", shopService.getShopByShopId(1));
 		return "serch/edit";
 	}
+	
+	/*
+	@PostMapping("shopEdit")
+	public String getForm(Model model) {
+		model.addAttribute("detail", shopService.findShop());
+		return "update_test";
+	}
+	*/
+	@PostMapping("save")
+	public ModelAndView saveEntity(@RequestParam("name") String name,
+								   @RequestParam("genre") String genre,
+								   @RequestParam("phone") Integer phone,
+								   @RequestParam("takeOut") Integer takeOut,
+								   @RequestParam("distance") Integer distance,
+								   @RequestParam("mapX") Integer mapX,
+								   @RequestParam("mapY") Integer mapY) {
+		Shop shop = new Shop();
+		shop.setShopName(name);
+		shop.setGenre(genre);
+		Shop savedEntity = shopService.saveShop(shop);
+		return new ModelAndView("your-success-page").addObject("shop", savedEntity);
+	}
+	
 }
