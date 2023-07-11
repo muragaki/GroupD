@@ -22,5 +22,6 @@ public class Cooking {
 	private Integer shopId;			//店舗ID
 	private String cookingName;		//料理名
 	private Integer price;			//お値段
+	
 	private String image;			//画像
 }

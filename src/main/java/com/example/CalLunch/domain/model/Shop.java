@@ -25,4 +25,15 @@ public class Shop {
 	private Integer distance;	//距離
 	private Integer mapX;       //座標X
 	private Integer mapY;       //座標Y
+	
+	public Shop(String shopName, String genre,Integer phone, Integer takeOut, Integer distance, Integer mapX, Integer mapY) {
+		this.shopName = shopName;
+		this.genre = genre;
+		this.phone = phone;
+		this.takeOut = takeOut;
+		this.distance = distance;
+		this.mapX = mapX;
+		this.mapY = mapY;
+		
+	}
 }

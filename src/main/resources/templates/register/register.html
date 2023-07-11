@@ -6,48 +6,38 @@
 </head>
 <body>
 	<h3>登録画面</h3>
-	<form th:action="confirmation" method="POST" enctype="multipart/form-data">
+	<form th:action="@{/confirmation}" method="POST" enctype="multipart/form-data" th:object="${shopForm}">
 		<label for="name">店舗名　　　　　　　</label>
-		<input type="text" id="name" name="name" required><br>
+		<input type="text" id="name" name="shopName" th:field="*{shopName}" required><br>
 		<label for="phone">電話番号　　　　　　</label>
-		<input type="number" id="phone" name="phone"><br>
+		<input type="tel" id="phone" name="phone" th:field="*{phone}"><br>
 		<label for="distance">Cal からの距離(徒歩)
-			<input type="number" id="distance" name="distance">
+			<input type="number" id="distance" name="distance" th:field="*{distance}">
 			分以内
 		</label><br>
 		<label for="genre">ジャンル　　　　　　</label>
-		<select id="genre" name="genre">
-			<option value="japan">和食</option>
-			<option value="usa">洋食</option>
-			<option value="china">中華</option>
-			<option value="korea">韓国料理</option>
-			<option value="others">その他</option>
+		<select id="genre" name="genre" th:field="*{genre}">
+			<option value="和食">和食</option>
+			<option value="洋食">洋食</option>
+			<option value="中華">中華</option>
+			<option value="韓国料理">韓国料理</option>
+			<option value="その他">その他</option>
 		</select><br>
-		<label for="takeout">テイクアウトの可否　</label>
-		<select id="takeout" name="takeout">
-			<option value="eat">1</option>
-			<option value="takeout">2</option>
-			<option value="both">3</option>
-			
+		<label for="takeOut">テイクアウトの可否　</label>
+		<select id="takeOut" name="takeOut" th:field="*{takeOut}">
+			<option value="default">１～３で選んでください</option>
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
 		</select><br>
-		<label for="cooking">商品名　　　　　　　</label>
-		<input type="text" id="cooking" name="cooking" required><br>
+		<label for="cookingName">商品名　　　　　　　</label>
+		<input type="text" id="cookingName" name="cookingName" th:field="*{cookingName}" required><br>
 		<label for="price">価格　　　　　　　　</label>
-		<input type="number" id="price" name="price"><br>
+		<input type="number" id="price" name="price" th:field="*{price}"><br>
 		<label for="upload">商品画像添付（任意）</label><br>
-			<input type="file" name="image"><br>
-		<label for="evaluation">評価（５段階）　　　</label>
-		<select id="evaluation" name="evaluation">
-			<option value="five">5</option>
-			<option value="four">4</option>
-			<option value="three">3</option>
-			<option value="two">2</option>
-			<option value="one">1</option>
-		</select><br>
-			<button type="submit" name="action" value="map">MAP位置登録</button>
+		<input type="file" name="image"><br>
+		<button type="submit" name="action" value="map">MAP位置登録</button>
 		<button type="submit" name="action" value="confirmation">確認画面へ</button>
 	</form>
-	
-
 </body>
 </html>

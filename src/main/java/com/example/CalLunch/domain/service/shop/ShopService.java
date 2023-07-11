@@ -14,12 +14,14 @@ public class ShopService {
 	@Autowired
 	ShopRepository shopRepository;
 	
+	
 	public void save(Shop shop) {
-		if(shopRepository.readByShopNameAndShopId(shop.getShopName(), shop.getShopId()) == null) {
+		if(shopRepository.findByShopNameAndShopId(shop.getShopName(), shop.getShopId()) == null) {
 			shopRepository.save(shop);
 		}else {
 		}
 	}
+	
 	
 	public void delete(Shop shop) {
 		shopRepository.delete(shop);

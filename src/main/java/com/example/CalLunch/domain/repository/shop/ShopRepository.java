@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.CalLunch.domain.model.Shop;
 
 public interface ShopRepository extends JpaRepository<Shop, Integer>{
-	Shop findByShopId (Integer shopId);
+	Shop findByShopName (String shopName);
 	List<Shop> findAll ();
 	Shop readByShopName(String shopName);
-	Shop readByShopNameAndShopId(String shopName, Integer shopId);
+	Shop findByShopNameAndShopId(String shopName, Integer shopId);
+	Shop findByShopId(Integer shopId);
 }

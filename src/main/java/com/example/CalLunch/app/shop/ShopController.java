@@ -3,6 +3,7 @@ package com.example.CalLunch.app.shop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +52,8 @@ public class ShopController {
 		return "lunchtop/top";
 	}
 	@PostMapping("register")
-	public String register(Model model) {
+	public String register(@ModelAttribute("shopForm") ShopForm shopForm,Model model) {
+		model.addAttribute("shopForm", shopForm);
 		model.addAttribute("register", shopService.findShop());
 		return "register/register";
 	}
@@ -62,20 +64,65 @@ public class ShopController {
 		model.addAttribute("serch", shopService.findShop());
 		return "serch/cooking";
 	}
-	@PostMapping("confirmation")
-	public String confirmation(Model model) {
-		model.addAttribute("item", shopService.findShop());
-		model.addAttribute("cook", cookingService.findCooking());
-		//shopService.save(shop);
-		//cookingService.save(cooking);
+	@PostMapping("/confirmation")
+	public String confirmation(@ModelAttribute("shopForm") ShopForm shopForm,
+			BindingResult bindingResult,
+			Model model) {
+		if(shopForm.getPhone() == null) {
+			shopForm.setPhone(0);
+		}
+		/*if(shopForm.getTakeOut() == null) {
+			shopForm.setTakeOut(0);
+		}*/
+		if(shopForm.getDistance() == null) {
+			shopForm.setDistance(0);
+		}
+		if(shopForm.getMapX() == null) {
+			shopForm.setMapX(0);
+		}
+		if(shopForm.getMapY() == null) {
+			shopForm.setMapY(0);
+		}
+		if(shopForm.getPrice() == null) {
+			shopForm.setPrice(0);
+		}
+		if(shopForm.getImage() != null && !shopForm.getImage().isEmpty()) {
+			
+		}else {
+			shopForm.setImage("");
+		}
+		//Shop shop = new Shop(shopName,genre,phone,takeOut,distance,mapX,mapY);
+		//model.addAttribute("shop", shop);
+		model.addAttribute("shopForm", shopForm);
+		//model.addAttribute("shopForm", new ShopForm());
+		//model.addAttribute("shopService", shopService);
+		//model.addAttribute("cooking", cookingService.findCooking());
+		
 		return "register/preview";
 	}
-	@PostMapping("preview")
-    public String preview(@ModelAttribute("shop") Shop shop, @ModelAttribute("cooking") Cooking cooking) {
-        // shopListとcookingListのデータを使用して処理を行う
-        // 例: データの表示、保存、操作など
-		shopService.save(shop);
-		cookingService.save(cooking);
+	@PostMapping("/preview")
+    public String preview(@ModelAttribute("shopForm") ShopForm shopForm,
+    		Model model) {
+		// Shopオブジェクトの作成と保存
+	    Shop shop = new Shop();
+	    shop.setShopName(shopForm.getShopName());
+	    shop.setDistance(shopForm.getDistance());
+	    shop.setGenre(shopForm.getGenre());
+	    shop.setTakeOut(shopForm.getTakeOut());
+	    shop.setPhone(shopForm.getPhone());
+	    shopService.save(shop);
+	    
+	    // shopIdの値を取得
+	    Integer shopId = shop.getShopId();
+	    
+	 // Cookingオブジェクトの作成と保存
+	    Cooking cooking = new Cooking();
+	    cooking.setShopId(shopId); // 有効なshopIdを設定
+	    cooking.setCookingName(shopForm.getCookingName());
+	    cooking.setPrice(shopForm.getPrice());
+	    cooking.setImage(shopForm.getImage());
+	    cookingService.save(cooking);
+	    model.addAttribute("shopForm", shopForm);
 
         return "lunchtop/top"; // 表示するビューの名前を返す
     }

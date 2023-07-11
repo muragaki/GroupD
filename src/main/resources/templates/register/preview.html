@@ -8,29 +8,16 @@
 	<h3>確認画面</h3>
 	<form th:action="@{/preview}" method="POST" th:object="${shopForm}">
 		<table border="1">
-			<tr>
-				<tr><th>店舗名</th>
-				<tr><th>ＣＡＬからの距離</th>
-				<tr><th>ジャンル</th>
-				<tr><th>テイクアウトの可否</th>
-				<tr><th>電話番号</th>
-			</tr>
-			<tr>	
-				<tr><th>商品名</th>
-				<tr><th>価格</th>
-				<tr><th>画像</th>
-			</tr>
-			<tr th:each="item,stat : ${shopList}" align="center">
-				<td th:text="${item.shopId}"></td>
-				<td th:text="${item.distance}"></td>
-				<td th:text="${item.genre}"></td>
-				<td th:text="${item.takeOut}"></td>
-				<td th:text="${item.phone}"></td>
-			</tr>
-			<tr th:each="cook,end : ${cookingList}" align="center">
-				<td th:text="${cook.cookingName}"></td>
-				<td th:text="${cook.cookingPrice}"></td>
-				<td th:text="${cook.image}"></td>
+			
+				<tr><th>店舗名<input type="text" th:field="*{shopName}" readonly></th></tr>
+				<tr><th>ＣＡＬからの距離<input type="text" th:field="*{distance}" readonly></th></tr>
+				<tr><th>ジャンル<input type="text" th:field="*{genre}" readonly></th></tr>
+				<tr><th>テイクアウトの可否<input type="text" th:field="*{takeOut}" readonly></th></tr>
+				<tr><th>電話番号<input type="text" th:field="*{phone}" readonly></th></tr>
+				<tr><th>商品名<input type="text" th:field="*{cookingName}" readonly></th></tr>
+				<tr><th>価格<input type="text" th:field="*{price}" readonly></th></tr>
+				<tr><th>画像<input type="text" th:field="*{image}" readonly></th></tr>
+				
 			</tr>
 		</table>
 		<button type="submit">登録</button>

@@ -16,11 +16,16 @@ public class CookingService {
 	
 	public void save(Cooking cooking) {
 		if (cookingRepository.readByCookingIdAndShopId(cooking.getCookingId(), cooking.getShopId()) == null) {
-			cookingRepository.save(cooking);
+			cooking.setCookingName(cooking.getCookingName());
+	        cooking.setPrice(cooking.getPrice());
+	        String st = cooking.getImage();
+	        cooking.setImage(st);
+	        cookingRepository.save(cooking);
 		} else {
 			// 既に登録されている場合は登録しない
 		}
 	}
+	
 
 	public List<Cooking> finditem(Integer shopId) {
 		return cookingRepository.findByShopIdOrderByCookingIdAsc(shopId);
