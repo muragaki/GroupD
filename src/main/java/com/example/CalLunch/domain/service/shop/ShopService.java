@@ -45,4 +45,10 @@ public class ShopService {
 	public Shop getShopByShopId(Integer shopId) {
 		return shopRepository.findByShopId(shopId);
 	}
+	public Shop getfindByShopName(String shopName) {
+		return shopRepository.findByShopName(shopName);
+	}
+	public List<Shop> getfindByShopNameContaining(String shopName) {
+        return shopRepository.findByShopNameContaining(shopName);
+    }
 }

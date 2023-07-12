@@ -5,38 +5,36 @@
 <title>店舗詳細画面</title>
 </head>
 <body>
-	<form th:action="@{/shopEdit}" method="post">
 	<!-- <h3>店舗詳細</h3><img src="restaurant-449952_1280_small.jpg" alt="Image Description"><br> -->
 	<h3>店舗詳細</h3><img th:src="${imagePath}" alt="Image Description"><br>
 
-	<h4>店舗名<h4>
+	<h4>店舗名</h4>
 =======
 	<!-- <h3>店舗詳細</h3><h4>店舗名　</h4> -->
 	
-	<form th:action="@{/shopEdit}" method="post" th:object="${shopForm}">
+	<form th:action="@{/shopEdit}" method="post" th:object="${cookingForm}">
 	<!-- <input type="image" src="@{editImage.jpg}" alt="Submit" name="submitButton"> -->
-	<button type="submit">編集</button></form>
 	
 	<!-- <a th:href="@{${ShopEdit}}" ><img th:src="@{editImage.jpg}"></h4></a> -->
 <!-- >>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git -->
-	<table th:each="shop : ${detail}">
+	<table th:each="shop : ${shopList}">
 	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
 	<tbody>
-		<tr>
-			<td th:text="*{shopId}"></td>
+			
 		</tr>
-		<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}" method="post"></td>
+		<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td>
 		<tr><th>店舗名　　　&emsp;</th><td th:text="${shop.shopName}"></td>
 		<!-- <tr><th>営業時間　　&emsp;</th><td th:text="${shop.hour}"></td>
 		<tr><th>サービス　　&emsp;</th><td th:text="${shop.service}"></td> -->
 		<tr><th>ジャンル　　&emsp;</th><td th:text="${shop.genre}"></td>
 		<tr><th>電話番号　　&emsp;</th><td th:text="${shop.phone}"></td>
 		<tr><th>テイクアウト&emsp;</th><td th:text="${shop.takeOut}"></td>
-		<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td>
-		<tr><th>座標 X　　　&emsp;</th><td th:text="${shop.mapX}"></td>
-		<tr><th>座標 Y　　　&emsp;</th><td th:text="${shop.mapY}"></td>
+		<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td><br>
+		<!--<tr><th>座標 X　　　&emsp;</th><td th:text="${shop.mapX}"></td>
+		<tr><th>座標 Y　　　&emsp;</th><td th:text="${shop.mapY}"></td> -->
 	</tbody>
 	</table>
+	<button type="submit">編集</button></form>
 </body>
 </html>

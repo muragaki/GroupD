@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.CalLunch.app.cooking.CookingForm;
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
 import com.example.CalLunch.domain.service.cooking.CookingService;
@@ -58,8 +59,9 @@ public class ShopController {
 	
 	
 	@PostMapping("serch")
-	public String sercher(Model model) {
+	public String sercher(@ModelAttribute("cookingForm") CookingForm cookingForm,Model model) {
 		model.addAttribute("serch", shopService.findShop());
+		model.addAttribute("cookingForm", cookingForm);
 		return "serch/cooking";
 	}
 	@PostMapping("/confirmation")
@@ -139,10 +141,7 @@ public class ShopController {
 		model.addAttribute("comment", shopService.findShop());
 		return "comment/comment";
 	}
-	@PostMapping("shopserch")
-	public String shopserch(Model model) {
-		return "shop/detail";
-	}
+	
 	
 	@PostMapping("shopEdit")
 	public String shopEdit(Model model) {
