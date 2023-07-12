@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,9 @@ public class Shop {
 	private Integer distance;	//距離
 	private Integer mapX;       //座標X
 	private Integer mapY;       //座標Y
+	
+	@Lob
+	private byte[] image;	//画像
 	
 	public Shop(String shopName, String genre,Integer phone, Integer takeOut, Integer distance, Integer mapX, Integer mapY) {
 		this.shopName = shopName;

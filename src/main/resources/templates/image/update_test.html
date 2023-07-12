@@ -5,13 +5,22 @@
 <title>test</title>
 </head>
 <body>
-	<form action="save" method="post">
+	
+	<form action="save" method="post"><style>
+  .flex-container {
+    display: flex;
+  }
+  .flex-container label {
+    width: 100px; /* 必要な幅を指定 */
+  }
+</style>
+<div class="flex-container">
            <label for="name">Name:</label>
            <input type="text" id="name" name="name" required><br>
-           
+          
            <label for="genre">genre:</label>
            <input type="text" id="name" name="genre" required><br>
-           
+
            <label for="phone">phone:</label>
            <input type="text" id="name" name="phone" required><br>
            
@@ -28,6 +37,7 @@
            <input type="text" id="name" name="mapY" required><br>
            
            <button type="submit">Save</button>
+           </div>
 	</form>
 </body>
 </html>
