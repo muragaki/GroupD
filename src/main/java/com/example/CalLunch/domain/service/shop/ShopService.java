@@ -51,4 +51,9 @@ public class ShopService {
 	public List<Shop> getfindByShopNameContaining(String shopName) {
         return shopRepository.findByShopNameContaining(shopName);
     }
+
+	
+	public Shop saveShop(Shop shop) {
+		return shopRepository.save(shop);
+	}
 }
