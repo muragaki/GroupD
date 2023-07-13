@@ -23,4 +23,5 @@ public class Comment {
 	private String text;			//コメント
 	private Integer evaluation;		//評価
 	private LocalDateTime time;		//時間
+	private String image;			//写真
 }

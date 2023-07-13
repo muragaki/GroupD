@@ -12,9 +12,9 @@ import lombok.Data;
 		@Valid
 		private ArrayList<Comment> commentList = new ArrayList<>();
 		
-		private String commentForm;
+		private String text;
 		private String title;
-		private String evaluation;
-		private String image;
+		private Integer evaluation;
+		
 
 }
