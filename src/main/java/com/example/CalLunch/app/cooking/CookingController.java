@@ -55,21 +55,34 @@ public class CookingController {
 		for(Shop sh : shopList) {
 			if(!sh.getTakeOut().equals(cookingForm.getTakeOut()) && !cookingForm.getTakeOut().equals(0)) {
 				
-				continue;
+				//continue;
 			}else {
 				if(!sh.getGenre().equals(cookingForm.getGenre()) && !cookingForm.getGenre().equals("選択してください")){
-					list.add(sh);			//shopNameだけ記入で追加
-					continue;
+					//list.add(sh);			//genreだけ記入で追加
+					//continue;
 				}else {
 					if(sh.getDistance() > cookingForm.getDistance() && !cookingForm.getDistance().equals(0)) {
 						//list.add(sh);
-						continue;
+						//continue;
 					}else {
 						list.add(sh);
+						continue;
 					}
 				}
 			}
+			if(cookingForm.getTakeOut().equals(0)) {
+				if(cookingForm.getGenre().equals("選択してください")){
+					if(sh.getDistance() > cookingForm.getDistance() && !cookingForm.getDistance().equals(0)) {
+					}else {
+						list.add(sh);
+						continue;
+					}
+					
+				}
+			}
 		}
+		
+		
 		
 		
 		}else {
