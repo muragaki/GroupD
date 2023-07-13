@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.CalLunch.app.shop.ShopForm;
 import com.example.CalLunch.domain.model.Shop;
 import com.example.CalLunch.domain.service.cooking.CookingService;
 import com.example.CalLunch.domain.service.shop.ShopService;
@@ -109,5 +110,10 @@ public class CookingController {
 		model.addAttribute("cookingForm", cookingForm);
 		//model.addAttribute("shopForm", shopForm);
 		return "shop/detail";
+	}
+	@PostMapping("/map")
+	public String map(@ModelAttribute("shopForm") ShopForm shopForm,Model model) {
+		model.addAttribute("shopForm", shopForm);
+		return "redirect:register";
 	}
 }
