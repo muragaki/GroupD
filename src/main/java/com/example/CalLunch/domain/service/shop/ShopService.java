@@ -35,9 +35,9 @@ public class ShopService {
 		if(shop.getShopId() == 0) {
 			shopRepository.deleteById(shop.getShopId());
 		}else {
-			Shop tempshopid = shopRepository.findByShopId(shop.getShopId());//.get(0);
-			tempshopid.setShopId(shop.getShopId());
-			shopRepository.save(tempshopid);
+			//Shop tempshopid = shopRepository.findByShopId(shop.getShopId());//.get(0);
+			//tempshopid.setShopId(shop.getShopId());
+			shopRepository.save(shop);
 			
 		}
 	}

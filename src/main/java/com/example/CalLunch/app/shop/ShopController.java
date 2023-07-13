@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
@@ -156,8 +158,10 @@ public class ShopController {
 		model.addAttribute("detail", shopService.findShop());
 		return "update_test";
 	}
+	*/
+	
 	@PostMapping("save")
-	public ModelAndView saveEntity(@RequestParam("name") String name,
+	public ModelAndView saveEntity(@RequestParam("name") String shopName,
 								   @RequestParam("genre") String genre,
 								   @RequestParam("phone") Integer phone,
 								   @RequestParam("takeOut") Integer takeOut,
@@ -165,10 +169,28 @@ public class ShopController {
 								   @RequestParam("mapX") Integer mapX,
 								   @RequestParam("mapY") Integer mapY) {
 		Shop shop = new Shop();
-		shop.setShopName(name);
+		shop.setShopName(shopName);
 		shop.setGenre(genre);
+		shop.setPhone(phone);
+		shop.setTakeOut(takeOut);
+		shop.setDistance(distance);
+		shop.setMapX(mapX);
+		shop.setMapY(mapY);
 		Shop savedEntity = shopService.saveShop(shop);
 		return new ModelAndView("your-success-page").addObject("shop", savedEntity);
 	}
+	
+	/*
+	@PostMapping("save")
+	public String saveData(@ModelAttribute("Shop") Shop shop) {
+		shopService.saveShop(shop);
+		return "image/your-success-page";
+	}
 	*/
+	
+	@PostMapping("overrite")
+	public String overrite(Model model) {
+		model.addAttribute("former_data", shopService.getShopByShopId(1));
+		return "shop/overrite";
+	}
 }

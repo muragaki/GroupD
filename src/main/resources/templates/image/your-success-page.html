@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<h3>success</h3>
+	<form th:action="@{top}"></form>
+		<button type="submit">トップへ戻る</button>
+	</form>
 </body>
 </html>
