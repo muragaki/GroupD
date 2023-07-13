@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.CalLunch.app.shop.ShopForm;
 import com.example.CalLunch.domain.model.Shop;
 import com.example.CalLunch.domain.service.cooking.CookingService;
 import com.example.CalLunch.domain.service.shop.ShopService;
@@ -55,21 +56,34 @@ public class CookingController {
 		for(Shop sh : shopList) {
 			if(!sh.getTakeOut().equals(cookingForm.getTakeOut()) && !cookingForm.getTakeOut().equals(0)) {
 				
-				continue;
+				//continue;
 			}else {
 				if(!sh.getGenre().equals(cookingForm.getGenre()) && !cookingForm.getGenre().equals("選択してください")){
-					list.add(sh);			//shopNameだけ記入で追加
-					continue;
+					//list.add(sh);			//genreだけ記入で追加
+					//continue;
 				}else {
 					if(sh.getDistance() > cookingForm.getDistance() && !cookingForm.getDistance().equals(0)) {
 						//list.add(sh);
-						continue;
+						//continue;
 					}else {
 						list.add(sh);
+						continue;
 					}
 				}
 			}
+			if(cookingForm.getTakeOut().equals(0)) {
+				if(cookingForm.getGenre().equals("選択してください")){
+					if(sh.getDistance() > cookingForm.getDistance() && !cookingForm.getDistance().equals(0)) {
+					}else {
+						list.add(sh);
+						continue;
+					}
+					
+				}
+			}
 		}
+		
+		
 		
 		
 		}else {
@@ -96,5 +110,10 @@ public class CookingController {
 		model.addAttribute("cookingForm", cookingForm);
 		//model.addAttribute("shopForm", shopForm);
 		return "shop/detail";
+	}
+	@PostMapping("/map")
+	public String map(@ModelAttribute("shopForm") ShopForm shopForm,Model model) {
+		model.addAttribute("shopForm", shopForm);
+		return "redirect:register";
 	}
 }

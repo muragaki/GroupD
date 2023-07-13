@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Cal Lunch</title>
+  <meta charset="UTF-8">
+  <title>Cal Lunch</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<h1>Cal Lunch</h1>
-	<form th:action="@{'/serch'}" method="POST">
-		<button type="submit">検索</button>
-	</form>
-	<form th:action="@{'/register'}" method="POST">
-		<button type="submit">登録</button>
-	</form>
-	<form th:action="@{'/comment'}" method="POST">
-		<button type="submit">登録店舗へのコメント追加</button>
-	</form>
-
+  <h1>Cal Lunch</h1>
+  <form th:action="@{'/serch'}" method="POST">
+    <button type="submit">検索</button>
+  </form>
+  <form th:action="@{'/register'}" method="POST">
+    <button type="submit">登録</button>
+  </form>
+  <form th:action="@{'/comment'}" method="POST">
+    <button type="submit">登録店舗へのコメント追加</button>
+  </form>
 </body>
 </html>

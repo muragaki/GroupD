@@ -16,5 +16,7 @@ public class CookingForm {
 	private Integer takeOut;
 	private String genre;
 	private Integer distance;
+	private String image;
+	
 	
 }

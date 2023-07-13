@@ -133,11 +133,11 @@ public class ShopController {
 		model.addAttribute("upload", shopService.findShop());
 		return "lunchtop/top";
 	}
-	@PostMapping("comment")
+	/*@PostMapping("comment")
 	public String comment(Model model) {
 		model.addAttribute("comment", shopService.findShop());
 		return "table/table";
-	}
+	}*/
 	@PostMapping("access")
 	public String access(Model model) {
 		model.addAttribute("comment", shopService.findShop());
