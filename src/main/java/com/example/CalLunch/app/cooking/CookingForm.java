@@ -12,4 +12,9 @@ public class CookingForm {
 	@Valid
 	private ArrayList<Cooking> cookingList = new ArrayList<>();
 
+	private String shopName;
+	private Integer takeOut;
+	private String genre;
+	private Integer distance;
+	
 }

@@ -11,23 +11,31 @@
 	<table roup span="1" style="width:150px; background-color:#F0F8FF" th:each="shop : ${detail}">
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
 	<tbody><br>
+		<form th:action="@{editInfo}" method="post">
+			
 		<label for="shopName">店舗名　　　</label>
 		<input type="text" id="name" name="name" th:placeholder="${shop.shopName}"><br>
+		
 		<label for="genre">ジャンル　　</label>
 		<input type="text" id="genre" name="genre" th:placeholder="${shop.genre}"><br>
+		
 		<label for="phone">電話番号　　</label>
 		<input type="text" id="phone" name="phone" th:placeholder="${shop.phone}"><br>
+		
 		<label for="takeout">テイクアウト</label>
 		<input type="text" id="takeOut" name="takeOut" th:placeholder="${shop.takeOut}"><br>
+		
 		<label for="distance">距離　　　　</label>
 		<input type="text" id="distance" name="distance" th:placeholder="${shop.distance}"><br>
+		
 		<label for="mapX">座標X　　　 </label>
 		<input type="text" id="mapX" name="mapX" th:placeholder="${shop.mapX}"><br>
+		
 		<label for="mapY">座標Y　　　 </label>
 		<input type="text" id="mapY" name="mapY" th:placeholder="${shop.mapY}"><br>
+		</form>
 		<!-- <itype="hidden" th:field="*{shop.distance[__${shop.distance}__].shop.distance}" /> -->
 		<!-- <h3><span th:text="${name}"></span>ton type="submit">登録</button> -->
-		<form th:action="@{save}" method="post">
 		<button type="submit">確認</button></form>
 	</tbody>
 	</table>

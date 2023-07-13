@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{editInfo}" method="post" th:object="${editForm}">
+		<label for="idShopName">店舗名</label><br>
+		<input type="text" th:name="shopName" th:field="*{shopName}"><br>
+		
+		<label for="idGenre">ジャンル</label><br>
+		<input type="text" th:id="idGenre" th:name="genre" th:field="*{genre}"><br>
+		
+		<labe for="idPhone">電話番号</labe><br>
+		<input type="number" th:id="idPhone" th:name="phone" th:field="*{phone}"><br>
+		
+		<labe for="idTakeOut">テイクアウト</labe><br>
+		<input type="number" th:id="idTakeOut" th:name="takeOut" th:field="*{takeOut}"><br>
+		
+		<labe for="idDistance">距離</labe><br>
+		<input type="number" th:id="idDistance" th:name="distance" th:field="*{distance}"><br>
+		
+		<labe for="idMapX">座標X</labe><br>
+		<input type="number" th:id="idMapX" th:name="mapX" th:field="*{mapX}"><br>
+		
+		<labe for="idMapY">座標Y</labe><br>
+		<input type="number" th:id="idMapY" th:name="mapY" th:field="*{mapY}"><br>
+		<button>送信</button>
+	</form>
+</body>
+</html>

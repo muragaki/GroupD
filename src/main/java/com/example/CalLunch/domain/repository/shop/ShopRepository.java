@@ -12,4 +12,5 @@ public interface ShopRepository extends JpaRepository<Shop, Integer>{
 	Shop readByShopName(String shopName);
 	Shop findByShopNameAndShopId(String shopName, Integer shopId);
 	Shop findByShopId(Integer shopId);
+	List<Shop> findByShopNameContaining(String shopName);
 }
