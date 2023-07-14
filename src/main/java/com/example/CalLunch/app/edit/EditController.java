@@ -72,6 +72,8 @@ public class EditController {
 						@RequestParam Integer mapX,
 						@RequestParam Integer mapY) {
 		Shop shop = new Shop();
+		//店舗詳細のidを持ってくる
+		
 		//if(shop.getShopId() == editForm.getShopId()) {	//idが一致すれば
 		shop.setShopName(shopName);
 		shop.setGenre(genre);
