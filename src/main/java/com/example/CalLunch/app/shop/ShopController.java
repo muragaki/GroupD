@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.CalLunch.app.cooking.CookingForm;
+import com.example.CalLunch.app.edit.EditForm;
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
 import com.example.CalLunch.domain.service.cooking.CookingService;
@@ -186,10 +187,28 @@ public class ShopController {
 		return "image/your-success-page";
 	}
 	*/
+
+	@PostMapping("input")
+	public String input(@ModelAttribute("editForm") EditForm editForm) {
+		return "edit/input";
+	}
 	
-	@PostMapping("overrite")
-	public String overrite(Model model) {
-		model.addAttribute("former_data", shopService.getShopByShopId(1));
-		return "shop/overrite";
+	@PostMapping("editInfo")
+	public String editInfo(Model model,
+							@RequestParam String shopName,
+							@RequestParam String genre,
+							@RequestParam Integer phone,
+							@RequestParam Integer takeOut,
+							@RequestParam Integer distance,
+							@RequestParam Integer mapX,
+							@RequestParam Integer mapY) {
+		model.addAttribute("shopName", shopName);	
+		model.addAttribute("genre", genre);	
+		model.addAttribute("phone", phone);	
+		model.addAttribute("takeOut", takeOut);	
+		model.addAttribute("distance", distance);	
+		model.addAttribute("mapX", mapX);
+		model.addAttribute("mapY", mapY);	
+		return "edit/editInfo";
 	}
 }

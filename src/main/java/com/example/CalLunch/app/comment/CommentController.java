@@ -1,6 +1,6 @@
 package com.example.CalLunch.app.comment;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,11 +31,11 @@ public class CommentController {
     		Model model) {
 	 // Commentオブジェクトの作成と保存
     Comment comment = new Comment();
-    comment.setText(commentForm.getText()); 
+   /* comment.setText(commentForm.getText()); 
     comment.setTitle(commentForm.getTitle());
     comment.setEvaluation(commentForm.getEvaluation());
     comment.setTime(LocalDateTime.now());
-    comment.setImage(cookingForm.getImage()); 
+    comment.setImage(cookingForm.getImage()); */
     commentService.save(comment);
     model.addAttribute("commentForm", commentForm);
 
@@ -43,5 +43,3 @@ public class CommentController {
         
 	    }
 	}
-
-

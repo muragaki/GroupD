@@ -2,8 +2,6 @@ package com.example.CalLunch.app.edit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,10 +17,12 @@ public class EditController {
 	public EditController(ShopService shopService) {
 		this.shopService = shopService;
 	}
+	/*
 	@PostMapping("input")
 	public String input(@ModelAttribute("editForm") EditForm editForm) {
 		return "edit/input";
 	}
+	*/
 	/*
 	@PostMapping("editInfo")
 	public String toEditInfo
@@ -42,7 +42,7 @@ public class EditController {
 		
 		return "edit/editInfo";
 	}*/
-	
+	/*
 	@PostMapping("editInfo")
 	public String editInfo(Model model,
 							@RequestParam String shopName,
@@ -61,11 +61,26 @@ public class EditController {
 		model.addAttribute("mapY", mapY);	
 		return "edit/editInfo";
 	}
+	*/
 	
 	@PostMapping("overrite")
-	public String overrite(@ModelAttribute EditForm editForm) {
+	public String overrite(@RequestParam String shopName,
+						@RequestParam String genre,
+						@RequestParam Integer phone,
+						@RequestParam Integer takeOut,
+						@RequestParam Integer distance,
+						@RequestParam Integer mapX,
+						@RequestParam Integer mapY) {
 		Shop shop = new Shop();
-		shop.setShopName(editForm.getShopName());
+		//if(shop.getShopId() == editForm.getShopId()) {	//idが一致すれば
+		shop.setShopName(shopName);
+		shop.setGenre(genre);
+		shop.setPhone(phone);
+		shop.setTakeOut(takeOut);
+		shop.setDistance(distance);
+		shop.setMapX(mapX);
+		shop.setMapY(mapY);
 		shopService.save(shop);
+		return "lunchtop/top";
+		}
 	}
-}

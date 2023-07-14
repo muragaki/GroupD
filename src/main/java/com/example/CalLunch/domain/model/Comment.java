@@ -1,17 +1,15 @@
 package com.example.CalLunch.domain.model;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+//@Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "t_coment")
 public class Comment {
@@ -22,6 +20,6 @@ public class Comment {
 	private String title;			//タイトル
 	private String text;			//コメント
 	private Integer evaluation;		//評価
-	private LocalDateTime time;		//時間
+//	private LocalDateTime time;		//時間
 	private String image;			//写真
 }

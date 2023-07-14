@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form th:action="@{editInfo}" method="post" th:object="${editForm}">
+	<form th:action="@{overrite}" method="post" th:object="${editForm}">
 		<label for="idShopName">店舗名</label><br>
 		<input type="text" th:name="shopName" th:field="*{shopName}"><br>
 		

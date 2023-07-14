@@ -7,6 +7,7 @@ import lombok.Data;
 public class EditForm {
 	@Valid
 	
+	private Integer shopId;
 	private String shopName;
 	private String genre;
 	private Integer phone;
