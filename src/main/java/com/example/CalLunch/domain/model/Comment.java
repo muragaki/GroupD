@@ -35,7 +35,7 @@ public class Comment {
 	private LocalDateTime time;		//時間
 	//private String image;
 	@ManyToOne
-    @JoinColumn(name = "shopId", referencedColumnName = "shopId")
+    @JoinColumn(name = "shopId", nullable = false)
     private Shop shop;
 
 //	private LocalDateTime time;		//時間

@@ -191,14 +191,11 @@ public class ShopController {
 		if(commentForm.getShopId() == null) {
 			
 		}else {
-		Shop shop = shopService.getShopByShopId(commentForm.getShopId());
+		Shop shop = new Shop();
+		shop.setShopId(commentForm.getShopId());
+		comment.setShop(shop);
 		
-		if (shop == null) {
-		    // エラー処理など、店舗が見つからない場合の対応を行います
-		} else {
-		    // Commentエンティティに店舗エンティティをセット
-		    comment.setShop(shop);
-		}}
+		}
 		commentService.save(comment);
 		//model.addAttribute("upload", shopService.findShop());
 		model.addAttribute("commentForm", new CommentForm()); // コメントフォームをリセット
