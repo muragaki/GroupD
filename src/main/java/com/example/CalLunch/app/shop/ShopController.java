@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.CalLunch.app.cooking.CookingForm;
-import com.example.CalLunch.app.edit.EditForm;
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
+import com.example.CalLunch.domain.model.ShopDTO;
 import com.example.CalLunch.domain.service.cooking.CookingService;
 import com.example.CalLunch.domain.service.shop.ShopService;
 
@@ -30,14 +30,23 @@ public class ShopController {
 	 * private final ShopRepository shopRepository;
 	 */
 	
-	
+	/*
 	  @PostMapping("detail")	//詳細画面確認用
 	public String detail(Model model){
 		String imagePath = "restaurant-449952_1280_small.jpg";
 		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("detail", shopService.getShopByShopId(2));
-		return "shop/detail";
-	}
+		return "shop/detail1";
+	}*/
+	  /*
+	  @PostMapping("detail")	//詳細画面確認用
+		public String detail(){
+			String imagePath = "restaurant-449952_1280_small.jpg";
+			model.addAttribute("imagePath", imagePath);
+			model.addAttribute("detail", shopService.getShopByShopId(2));
+			turn "shop/detail1";
+	  }*/
+	
 	
 	
 	/*@PostMapping("shopEdit")
@@ -187,9 +196,43 @@ public class ShopController {
 		return "image/your-success-page";
 	}
 	*/
-
+	/*
 	@PostMapping("input")
-	public String input(@ModelAttribute("editForm") EditForm editForm) {
+	public String input(Model model,
+						@RequestParam Integer id,
+						@RequestParam String name,
+						@RequestParam String genre,
+						@RequestParam Integer phone,
+						@RequestParam Integer takeOut,
+						@RequestParam Integer distance) {
+		//System.out.println("ID番号:"+id+"店舗名:"+name);
+		model.addAttribute("cid", id);
+		model.addAttribute("cname", name);
+		model.addAttribute("cgenre", genre);
+		model.addAttribute("cphone", phone);
+		model.addAttribute("ctakeOut", takeOut);
+		model.addAttribute("cdistance", distance);
+		return "edit/input";
+	}
+	*/
+	
+	@PostMapping("input")
+	public String input(Model model,
+			@RequestParam Integer id,
+			@RequestParam String name,
+			@RequestParam String genre,
+			@RequestParam Integer phone,
+			@RequestParam Integer takeOut,
+			@RequestParam Integer distance) {
+		//System.out.println(id+name+genre+phone);
+		ShopDTO shopdto = new ShopDTO();
+		shopdto.setShopId(id);
+		shopdto.setShopName(name);
+		shopdto.setGenre(genre);
+		shopdto.setPhone(phone);
+		shopdto.setTakeOut(takeOut);
+		shopdto.setDistance(distance);
+		model.addAttribute("shopdto", shopdto);
 		return "edit/input";
 	}
 	
