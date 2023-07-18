@@ -11,26 +11,26 @@
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
 			
 		<form th:action="@{input}" method="post">
-			<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td>
+			<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td></tr>
 			<input type="hidden" name="id" th:value="${shop.shopId}">
 		
-			<tr><th>店舗名　　　&emsp;</th><td th:text="${shop.shopName}"></td>
+			<tr><th>店舗名　　　&emsp;</th><td th:text="${shop.shopName}"></td></tr>
 			<input type="hidden" name="name"th:value="${shop.shopName}">
 
-			<tr><th>ジャンル　　&emsp;</th><td th:text="${shop.genre}"></td>
+			<tr><th>ジャンル　　&emsp;</th><td th:text="${shop.genre}"></td></tr>
 			<input type="hidden" name="genre" th:value="${shop.genre}">
 	
-			<tr><th>電話番号　　&emsp;</th><td th:text="${shop.phone}"></td>
+			<tr><th>電話番号　　&emsp;</th><td th:text="${shop.phone}"></td></tr>
 			<input type="hidden" name="phone" th:value="${shop.phone}">
 	
-			<tr><th>テイクアウト&emsp;</th><td th:text="${shop.takeOut}"></td>
+			<tr><th>テイクアウト&emsp;</th><td th:text="${shop.takeOut}"></td></tr>
 			<input type="hidden" name="takeOut"th:value="${shop.takeOut}">
 	
-			<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td><br>
+			<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td></tr><br>
 			<input type="hidden" name="distance" th:value="${shop.distance}">
 
 			<button type="submit">編集</button>
+		</form>
 	</table>
-	</form>
 </body>
 </html>
