@@ -19,6 +19,9 @@ public class CommentService {
 	public List<Comment> findComment() {
 		return commentRepository.findAllByOrderByShopId();
 	}
+	public List<Comment> findShopId(Integer shopId){
+		return commentRepository.findByShopId(shopId);
+	}
 
 
 }

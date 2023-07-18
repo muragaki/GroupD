@@ -1,6 +1,9 @@
 package com.example.CalLunch.app.comment;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.CalLunch.domain.model.Comment;
 
@@ -12,9 +15,13 @@ import lombok.Data;
 		@Valid
 		private ArrayList<Comment> commentList = new ArrayList<>();
 		
-		private String commentForm;
+		private Integer shopId;
+		private String cookingName;
+		private String text;
 		private String title;
-		private String evaluation;
-		private String image;
+		private Integer evaluation;
+		private MultipartFile image;
+		private LocalDateTime time;
+		
 
 }

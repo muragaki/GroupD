@@ -7,23 +7,38 @@
 <body>
 	<h1>コメント</h1>
 	<form th:action="upload" method="POST" enctype="multipart/form-data" th:object="${commentForm}">
+		<input type="hidden" name="shopId" th:value="*{shopId}"> <!-- 隠しフィールドとしてshopIdを設定 -->
 		<label for="title">タイトル</label>
-		<input type="text" name="title" th:object="${title}"> 
+		<input type="text" name="title" th:field="*{title}" required> 
 		<!-- <label for="item">　　　商品名</label> 
 		<input type="text" -->
 		<label for="evaluation">　　　評価（５段階）</label>
 		<select id="evaluation" name="evaluation" th:field="*{evaluation}" required>
-			<option value="five">　5　</option>
-			<option value="four">　4　</option>
-			<option value="three">　3　</option>
-			<option value="two">　2　</option>
-			<option value="one">　1　</option>
+			<option value=5>　5　</option>
+			<option value=4>　4　</option>
+			<option value=3>　3　</option>
+			<option value=2>　2　</option>
+			<option value=1>　1　</option>
 		</select><br><br>
-		<textarea style="resize: none;" cols="50" rows="10" name="comment"></textarea><br><br>
-		<label for="upload">商品画像添付（任意）</label><br>
-		<input type="file" name="image">
+		<textarea style="resize: none;" cols="50" rows="10" name="text" th:field="*{text}" required></textarea><br><br>
+		<!-- <label for="image">商品画像添付（任意）</label><br>
+		<input type="file" name="image"><br> -->
 		<br><br>
 		<button type="submit">　投稿する　</button>
 	</form>
+	<table th:each="list : ${commentList}">
+	<colgroup span="1" style="width:150px; background-color:#F0F8FF"></colgroup>
+	<colgroup span="2" style="width:300px; background-color:#F0F8FF"></colgroup>
+	<tbody>
+			
+		</tr>
+		<tr><th>タイトル　　　&emsp;</th><td th:text="${list.title}"></td></tr>
+		<tr><th>評価　　　&emsp;</th><td th:text="${list.evaluation}"></td></tr>
+		<tr><th>投稿時間　　　&emsp;</th><td th:text="${list.time}"></td></tr>
+		<tr><th>本文　　　&emsp;</th><td th:text="${list.text}"></td></tr>
+	</tbody>
+	
+	
+	</table>
 </body>
 </html>

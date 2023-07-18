@@ -1,18 +1,31 @@
 package com.example.CalLunch.app.shop;
 
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.CalLunch.app.comment.CommentForm;
 import com.example.CalLunch.app.cooking.CookingForm;
+import com.example.CalLunch.domain.model.Comment;
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
+import com.example.CalLunch.domain.service.comment.CommentService;
 import com.example.CalLunch.domain.service.cooking.CookingService;
 import com.example.CalLunch.domain.service.shop.ShopService;
 
@@ -25,6 +38,14 @@ public class ShopController {
 	@Autowired
 	CookingService cookingService; 
 	
+	@Autowired
+	CommentService commentService;
+	
+	// プロパティから保存先ディレクトリのパスを取得
+    @Value("${file.upload.dir}") // application.propertiesまたはapplication.ymlで指定
+    private String uploadDir;
+    
+    
 	/*
 	 * private final ShopRepository shopRepository;
 	 */
@@ -69,13 +90,12 @@ public class ShopController {
 	@PostMapping("/confirmation")
 	public String confirmation(@ModelAttribute("shopForm") ShopForm shopForm,
 			BindingResult bindingResult,
-			Model model) {
+			Model model,
+			@RequestParam("image") MultipartFile image) throws IOException {
 		if(shopForm.getPhone() == null) {
 			shopForm.setPhone(0);
 		}
-		/*if(shopForm.getTakeOut() == null) {
-			shopForm.setTakeOut(0);
-		}*/
+		
 		if(shopForm.getDistance() == null) {
 			shopForm.setDistance(0);
 		}
@@ -88,11 +108,38 @@ public class ShopController {
 		if(shopForm.getPrice() == null) {
 			shopForm.setPrice(0);
 		}
-		if(shopForm.getImage() != null && !shopForm.getImage().isEmpty()) {
+		//if(shopForm.getImage() != null && !shopForm.getImage().isEmpty()) {
 			
-		}else {
-			shopForm.setImage("");
+		//}else {
+			 String originalFilename = StringUtils.cleanPath(image.getOriginalFilename());
+			shopForm.setImage(originalFilename);
+		//}
+		
+		if (!image.isEmpty()) {
+            
+	        //String filePath = uploadDir + "/" + originalFilename;
+	        //File saveFile = new File(filePath);
+	        //image.transferTo(saveFile);
+                // ファイルを保存するディレクトリパスを構築
+                String savePath =  uploadDir + originalFilename;
+                // 保存先ディレクトリが存在しない場合は作成
+                File saveDir = new File(savePath);
+                if (!saveDir.exists()) {
+                    saveDir.mkdirs();
+                }
+                FileCopyUtils.copy(image.getBytes(), new File(savePath));
 		}
+		// 画像を保存するパス
+       /* String uploadDir = environment.getProperty("file.upload.dir");
+	    String imagePath = uploadDir + image.getOriginalFilename();
+
+	    // 画像を指定のパスに保存
+	    File imageFile = new File(imagePath);
+	    image.transferTo(imageFile);
+		*/
+	    // 保存した画像のパスをShopFormにセット
+	   // shopForm.setImagePath("/image/" + image.getOriginalFilename());
+		//}
 		//Shop shop = new Shop(shopName,genre,phone,takeOut,distance,mapX,mapY);
 		//model.addAttribute("shop", shop);
 		model.addAttribute("shopForm", shopForm);
@@ -129,18 +176,52 @@ public class ShopController {
         return "lunchtop/top"; // 表示するビューの名前を返す
     }
 	@PostMapping("upload")
-	public String upload(Model model) {
-		model.addAttribute("upload", shopService.findShop());
+	public String upload(@ModelAttribute("commentForm") CommentForm commentForm,Model model) {
+		Comment comment = new Comment();
+		comment.setShopId(commentForm.getShopId());
+		comment.setTitle(commentForm.getTitle());
+		comment.setEvaluation(commentForm.getEvaluation());
+		comment.setText(commentForm.getText());
+		comment.setTime(LocalDateTime.now());
+		//String originalFilename = StringUtils.cleanPath(image.getOriginalFilename());
+		//comment.setImage(commentForm.getImage().getBytes());
+		//comment.setImage(commentForm.getImage());
+		// 店舗エンティティを取得する（例として、idが1の店舗を取得するとします）
+		if(commentForm.getShopId() == null) {
+			
+		}else {
+		Shop shop = shopService.getShopByShopId(commentForm.getShopId());
+		
+		if (shop == null) {
+		    // エラー処理など、店舗が見つからない場合の対応を行います
+		} else {
+		    // Commentエンティティに店舗エンティティをセット
+		    comment.setShop(shop);
+		}}
+		commentService.save(comment);
+		//model.addAttribute("upload", shopService.findShop());
+		model.addAttribute("commentForm", new CommentForm()); // コメントフォームをリセット
 		return "lunchtop/top";
 	}
 	@PostMapping("comment")
-	public String comment(Model model) {
-		model.addAttribute("comment", shopService.findShop());
+	public String comment(@ModelAttribute("shopForm") ShopForm shopForm,
+			@ModelAttribute("commentForm") CommentForm commentForm,Model model) {
+		List<Shop> shopList = shopService.findShop();
+		model.addAttribute("shopList", shopList);
+		//model.addAttribute("comment", shopService.findShop());
+		model.addAttribute("shopForm", shopForm);
+		model.addAttribute("commentForm", commentForm);
 		return "table/table";
 	}
 	@PostMapping("access")
-	public String access(Model model) {
-		model.addAttribute("comment", shopService.findShop());
+	public String access(@ModelAttribute("shopForm") ShopForm shopForm,
+			@ModelAttribute("commentForm") CommentForm commentForm,Model model) {
+		//model.addAttribute("comment", shopService.findShop());
+		List<Comment> list = new ArrayList<>();
+		list.addAll(commentService.findShopId(commentForm.getShopId()));
+		model.addAttribute("shopForm", shopForm);
+		model.addAttribute("commentForm", commentForm);
+		model.addAttribute("commentList", list);
 		return "comment/comment";
 	}
 	

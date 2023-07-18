@@ -21,9 +21,6 @@ public class CommentController {
 		model.addAttribute("comment", commentService.findComment());
 		return "comment/comment";
 	}
-	
-	@RequestMapping("/comment")
-
 	    @PostMapping("/post")
 	    public String postComment(
 	            @RequestParam("title") String title,

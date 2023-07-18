@@ -13,6 +13,7 @@ public class ShopForm {
 	@Valid
 	private List<Shop> shopList = new ArrayList<>();
 	
+	private Integer shopId;
 	private String shopName;
 	private Integer phone;
 	private Integer distance;
@@ -23,4 +24,5 @@ public class ShopForm {
 	private String cookingName;
 	private Integer price;
 	private String image;
+	private String imagePath;
 }
