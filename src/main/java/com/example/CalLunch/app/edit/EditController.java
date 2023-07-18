@@ -45,26 +45,6 @@ public class EditController {
 		
 		return "edit/editInfo";
 	}*/
-	/*
-	@PostMapping("editInfo")
-	public String editInfo(Model model,
-							@RequestParam String shopName,
-							@RequestParam String genre,
-							@RequestParam Integer phone,
-							@RequestParam Integer takeOut,
-							@RequestParam Integer distance,
-							@RequestParam Integer mapX,
-							@RequestParam Integer mapY) {
-		model.addAttribute("shopName", shopName);	
-		model.addAttribute("genre", genre);	
-		model.addAttribute("phone", phone);	
-		model.addAttribute("takeOut", takeOut);	
-		model.addAttribute("distance", distance);	
-		model.addAttribute("mapX", mapX);
-		model.addAttribute("mapY", mapY);	
-		return "edit/editInfo";
-	}
-	*/
 	
 	@PostMapping("overrite")
 	public String overrite(@RequestParam Integer shopId,

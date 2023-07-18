@@ -37,17 +37,7 @@ public class ShopController {
 		model.addAttribute("imagePath", imagePath);
 		model.addAttribute("detail", shopService.getShopByShopId(2));
 		return "shop/detail1";
-	}*/
-	  /*
-	  @PostMapping("detail")	//詳細画面確認用
-		public String detail(){
-			String imagePath = "restaurant-449952_1280_small.jpg";
-			model.addAttribute("imagePath", imagePath);
-			model.addAttribute("detail", shopService.getShopByShopId(2));
-			turn "shop/detail1";
-	  }*/
-	
-	
+	}*/	
 	
 	/*@PostMapping("shopEdit")
 		public String getShopDetails(@PathVariable Integer shopId, Model model) {
@@ -161,14 +151,6 @@ public class ShopController {
 		return "serch/edit";
 	}
 	
-	/*
-	@PostMapping("shopEdit")
-	public String getForm(Model model) {
-		model.addAttribute("detail", shopService.findShop());
-		return "update_test";
-	}
-	*/
-	
 	@PostMapping("save")
 	public ModelAndView saveEntity(@RequestParam("name") String shopName,
 								   @RequestParam("genre") String genre,
@@ -189,33 +171,6 @@ public class ShopController {
 		return new ModelAndView("your-success-page").addObject("shop", savedEntity);
 	}
 	
-	/*
-	@PostMapping("save")
-	public String saveData(@ModelAttribute("Shop") Shop shop) {
-		shopService.saveShop(shop);
-		return "image/your-success-page";
-	}
-	*/
-	/*
-	@PostMapping("input")
-	public String input(Model model,
-						@RequestParam Integer id,
-						@RequestParam String name,
-						@RequestParam String genre,
-						@RequestParam Integer phone,
-						@RequestParam Integer takeOut,
-						@RequestParam Integer distance) {
-		//System.out.println("ID番号:"+id+"店舗名:"+name);
-		model.addAttribute("cid", id);
-		model.addAttribute("cname", name);
-		model.addAttribute("cgenre", genre);
-		model.addAttribute("cphone", phone);
-		model.addAttribute("ctakeOut", takeOut);
-		model.addAttribute("cdistance", distance);
-		return "edit/input";
-	}
-	*/
-	
 	@PostMapping("input")
 	public String input(Model model,
 			@RequestParam Integer id,
@@ -224,7 +179,7 @@ public class ShopController {
 			@RequestParam Integer phone,
 			@RequestParam Integer takeOut,
 			@RequestParam Integer distance) {
-		//System.out.println(id+name+genre+phone);
+		System.out.println("店舗ID:"+id);
 		ShopDTO shopdto = new ShopDTO();
 		shopdto.setShopId(id);
 		shopdto.setShopName(name);

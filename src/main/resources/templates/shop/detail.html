@@ -6,13 +6,11 @@
 </head>
 	<h3>店舗詳細</h3>
 	
-	<form th:action="@{input}" method="post">
 	<table th:each="shop : ${shopList}">
 	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
 	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
-
-	<th:each="shop : ${shopList}">
 			
+		<form th:action="@{input}" method="post">
 			<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td>
 			<input type="hidden" name="id" th:value="${shop.shopId}">
 		
