@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録画面</title>
+</head>
+<body>
+	<form th:action="@{overrite}" method="post" th:object="${shopdto}">
+		
+		<label for="idShopId">店舗ID</label><br>
+		<input type="text" th:name="shopId" th:field="*{shopId}" readonly><br>
+		
+		<label for="idShopName">店舗名</label><br>
+		<input type="text" th:id="idShopName" th:name="shopName" th:field="*{shopName}"><br>
+		
+		<label for="idGenre">ジャンル</label><br>
+		<input type="text" th:id="idGenre" th:name="genre" th:field="*{genre}"><br>
+		
+		<labe for="idPhone">電話番号</labe><br>
+		<input type="number" th:id="idPhone" th:name="phone" th:field="*{phone}"><br>
+		
+		<labe for="idTakeOut">テイクアウト</labe><br>
+		<input type="number" th:id="idTakeOut" th:name="takeOut" th:field="*{takeOut}"><br>
+		
+		<labe for="idDistance">距離</labe><br>
+		<input type="text" th:id="idDistance" th:name="distance" th:field="*{distance}"><br>
+
+		<button type="submit">登録</button>
+	</form>
+</body>
+</html>

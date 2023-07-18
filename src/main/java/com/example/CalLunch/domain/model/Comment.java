@@ -2,6 +2,8 @@ package com.example.CalLunch.domain.model;
 
 import java.time.LocalDateTime;
 
+//import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -28,10 +30,15 @@ public class Comment {
 	private String title;			//タイトル
 	private String text;			//コメント
 	private Integer evaluation;		//評価
+
 	@Id
 	private LocalDateTime time;		//時間
 	//private String image;
 	@ManyToOne
     @JoinColumn(name = "shopId", referencedColumnName = "shopId")
     private Shop shop;
+
+//	private LocalDateTime time;		//時間
+	private String image;			//写真
+
 }

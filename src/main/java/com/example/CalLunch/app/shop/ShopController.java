@@ -25,7 +25,9 @@ import com.example.CalLunch.app.cooking.CookingForm;
 import com.example.CalLunch.domain.model.Comment;
 import com.example.CalLunch.domain.model.Cooking;
 import com.example.CalLunch.domain.model.Shop;
+import com.example.CalLunch.domain.model.ShopDTO;
 import com.example.CalLunch.domain.service.comment.CommentService;
+//github.com/muragaki/GroupD.git
 import com.example.CalLunch.domain.service.cooking.CookingService;
 import com.example.CalLunch.domain.service.shop.ShopService;
 
@@ -50,15 +52,14 @@ public class ShopController {
 	 * private final ShopRepository shopRepository;
 	 */
 	
-	
+	/*
 	  @PostMapping("detail")	//詳細画面確認用
 	public String detail(Model model){
 		String imagePath = "restaurant-449952_1280_small.jpg";
 		model.addAttribute("imagePath", imagePath);
-		model.addAttribute("detail", shopService.getShopByShopId(1));
-		return "shop/detail";
-	}
-	
+		model.addAttribute("detail", shopService.getShopByShopId(2));
+		return "shop/detail1";
+	}*/	
 	
 	/*@PostMapping("shopEdit")
 		public String getShopDetails(@PathVariable Integer shopId, Model model) {
@@ -213,6 +214,7 @@ public class ShopController {
 		model.addAttribute("commentForm", commentForm);
 		return "table/table";
 	}
+	
 	@PostMapping("access")
 	public String access(@ModelAttribute("shopForm") ShopForm shopForm,
 			@ModelAttribute("commentForm") CommentForm commentForm,Model model) {
@@ -232,15 +234,8 @@ public class ShopController {
 		return "serch/edit";
 	}
 	
-	/*
-	@PostMapping("shopEdit")
-	public String getForm(Model model) {
-		model.addAttribute("detail", shopService.findShop());
-		return "update_test";
-	}
-	*/
 	@PostMapping("save")
-	public ModelAndView saveEntity(@RequestParam("name") String name,
+	public ModelAndView saveEntity(@RequestParam("name") String shopName,
 								   @RequestParam("genre") String genre,
 								   @RequestParam("phone") Integer phone,
 								   @RequestParam("takeOut") Integer takeOut,
@@ -248,10 +243,53 @@ public class ShopController {
 								   @RequestParam("mapX") Integer mapX,
 								   @RequestParam("mapY") Integer mapY) {
 		Shop shop = new Shop();
-		shop.setShopName(name);
+		shop.setShopName(shopName);
 		shop.setGenre(genre);
+		shop.setPhone(phone);
+		shop.setTakeOut(takeOut);
+		shop.setDistance(distance);
+		shop.setMapX(mapX);
+		shop.setMapY(mapY);
 		Shop savedEntity = shopService.saveShop(shop);
 		return new ModelAndView("your-success-page").addObject("shop", savedEntity);
 	}
 	
+	@PostMapping("input")
+	public String input(Model model,
+			@RequestParam Integer id,
+			@RequestParam String name,
+			@RequestParam String genre,
+			@RequestParam Integer phone,
+			@RequestParam Integer takeOut,
+			@RequestParam Integer distance) {
+		System.out.println("店舗ID:"+id);
+		ShopDTO shopdto = new ShopDTO();
+		shopdto.setShopId(id);
+		shopdto.setShopName(name);
+		shopdto.setGenre(genre);
+		shopdto.setPhone(phone);
+		shopdto.setTakeOut(takeOut);
+		shopdto.setDistance(distance);
+		model.addAttribute("shopdto", shopdto);
+		return "edit/input";
+	}
+	
+	@PostMapping("editInfo")
+	public String editInfo(Model model,
+							@RequestParam String shopName,
+							@RequestParam String genre,
+							@RequestParam Integer phone,
+							@RequestParam Integer takeOut,
+							@RequestParam Integer distance,
+							@RequestParam Integer mapX,
+							@RequestParam Integer mapY) {
+		model.addAttribute("shopName", shopName);	
+		model.addAttribute("genre", genre);	
+		model.addAttribute("phone", phone);	
+		model.addAttribute("takeOut", takeOut);	
+		model.addAttribute("distance", distance);	
+		model.addAttribute("mapX", mapX);
+		model.addAttribute("mapY", mapY);	
+		return "edit/editInfo";
+	}
 }

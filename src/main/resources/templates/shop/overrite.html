@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録情報確認</title>
+</head>
+<body>
+	<h3>確認画面</h3>
+
+		<table border="1" th:each="shop : ${former_data}">
+			
+				<tr><th>店舗名<input type="text" readonly th:placeholder="${shop.shopName}"></th></tr>
+				<tr><th>ジャンル<input type="text" readonly th:placeholder="${shop.genre}"></th></tr>
+				<tr><th>電話番号<input type="text" readonly th:placeholder="${shop.phone}"></th></tr>
+				<tr><th>テイクアウトの可否<input type="text" readonly th:placeholder="${shop.takeOut}"></th></tr>
+				<tr><th>ＣＡＬからの距離<input type="text" readonly th:placeholder="${shop.distance}"></th></tr>
+				<tr><th>商品名<input type="text" readonly></th></tr>
+				<tr><th>価格<input type="text" readonly></th></tr>
+				<tr><th>画像<input type="text" readonly></th></tr>
+				
+			</tr>
+		</table>
+	 <form th:action="@{save}" method="post">
+		<button type="submit">登録</button>
+	</form>
+
+</body>
+</html>
