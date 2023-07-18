@@ -16,7 +16,7 @@
 				<tr><th>電話番号<input type="text" th:field="*{phone}" readonly></th></tr>
 				<tr><th>商品名<input type="text" th:field="*{cookingName}" readonly></th></tr>
 				<tr><th>価格<input type="text" th:field="*{price}" readonly></th></tr>
-				<tr><th>画像<input type="text" th:field="*{image}" readonly></th></tr>
+				<tr><th>画像<img th:src="@{'/image/' + ${shopForm.image}}" alt="Uploaded Image" width="200px"></th></tr>
 				
 			</tr>
 		</table>
