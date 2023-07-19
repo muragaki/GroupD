@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* フォーム全体のスタイル */
+/* ページ全体のスタイル */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #FFE8D6;
+  padding: 20px;
+  text-align: center;
+  background-image: url('../image/touroku.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 50% 100%;
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影の追加 */
+}
+
+/* タイトルのスタイル */
+h3 {
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ラベルのスタイル */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 入力フィールドのスタイル */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* ボーダーボックスモデルを使用 */
+}
+
+/* ボタンのスタイル */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.2s; /* ホバーエフェクトの追加 */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* ボタンを水平に配置 */
+button[name="action"] {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+}
+
+button[name="action"]:last-child {
+    margin-right: 0; /* 最後のボタンにマージンを適用しない */
+}
+
+/* ジャンルの選択肢を均等に配置 */
+#genre {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* テイクアウトの選択肢を均等に配置 */
+#takeOut {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* 距離とジャンルのラベルをインラインに配置 */
+#distance, #genre {
+    display: inline-block;
+    margin-right: 20px;
+}

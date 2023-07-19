@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* 全体のスタイル */
+/* 全体のスタイル */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-image: url('/image/umai.jpg');
+  background-color: rgba(0, 0, 0, 0); /* 背景色を薄い青に透過処理 */
+  background-repeat: repeat;
+  padding: 20px;
+  text-align: center;
+}
+
+/* タイトルのスタイル */
+h1 {
+  color: red; /* タイトルの文字色を赤に設定 */
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0); /* タイトルの背景色を透明度0.7で白に設定 */
+  padding: 10px;
+}
+
+/* フォームのスタイル */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0); /* フォームの背景色を透明度0.7で白に設定 */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影の追加 */
+}
+
+/* フォーム内のラベルのスタイル */
+form label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid darkgoldenrod;
+  border-radius: 4px;
+  box-sizing: border-box; /* ボーダーボックスモデルを使用 */
+  background-color: rgba(200, 200, 200, 0.7); /* 入力フィールドの背景色を透明度0.7で白に設定 */
+  
+}
+
+/* 投稿ボタンのスタイル */
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: red; /* 投稿ボタンの背景色を赤に設定 */
+  color: #ffffff; /* 投稿ボタンの文字色を白に設定 */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.2s; /* ホバーエフェクトの追加 */
+ 
+}
+
+/* 投稿ボタンのホバーエフェクト */
+button[type="submit"]:hover {
+  background-color: #990000; /* ホバーエフェクト時の背景色を濃い赤に設定 */
+}
+
+/* 投稿一覧のテーブルのスタイル */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0); /* テーブルの背景色を透明度0.7で白に設定 */
+}
+
+/* 投稿一覧のテーブルヘッダのスタイル */
+th {
+  background-color: rgba(0, 0, 0, 0); /* ヘッダの背景色を透明度0.7で明るい色に設定 */
+  padding: 10px;
+}
+
+/* 投稿一覧のテーブルデータのスタイル */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+  background-color: rgba(0, 0, 0, 0); /* テーブルデータの背景色を透明度0.7で明るい色に設定 */
+}
+
+/* コメント一覧の各項目のスタイル */
+tr td,
+tr th {
+  background-color: rgba(0, 0, 0, 0); /* 各項目の背景色を透明度0.7で白に設定 */
+}
+/* 料理名の文字色を赤に変える */
+label[for="title"] {
+  color: darkgoldenrod;
+  font-size: 24px;
+}
+
+/* 評価（５段階）の文字色を青に変える */
+label[for="evaluation"],
+#evaluation {
+  color: darkgoldenrod;
+  font-size: 24px;
+}

@@ -20,7 +20,7 @@ public class Shop {
 	private Integer shopId;		//店舗ID
 	private String shopName;	//店舗名
 	private String genre;		//ジャンル
-	private Integer phone;		//電話番号
+	private String phone;		//電話番号
 	private Integer takeOut;	//店内かテイクアウトか
 	private Integer distance;	//距離
 	private Integer mapX;       //座標X
@@ -29,7 +29,7 @@ public class Shop {
 	//@Lob
 	//private byte[] image;	//画像
 	
-	public Shop(String shopName, String genre,Integer phone, Integer takeOut, Integer distance, Integer mapX, Integer mapY) {
+	public Shop(String shopName, String genre,String phone, Integer takeOut, Integer distance, Integer mapX, Integer mapY) {
 		this.shopName = shopName;
 		this.genre = genre;
 		this.phone = phone;

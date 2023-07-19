@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* ページ全体のスタイル */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+  background-image: url('../image/kennsaku.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #FF0000; /* 文字色を赤色に設定 */
+  font-size: 18px; /* 文字のサイズを18pxに設定 */
+}
+
+/* タイトルのスタイル */
+h1 {
+  color: #FF0000;
+  margin-bottom: 20px;
+}
+
+/* サブタイトルのスタイル */
+h3 {
+  color: #FF0000;
+  margin-bottom: 10px;
+}
+
+/* フォームのスタイル */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* 透明度を調整（0.7） */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ラベルのスタイル */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #FF0000;
+   font-size: 18px; /* 文字のサイズを18pxに設定 */
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  color: #FF0000;
+  font-size: 16px; /* 文字のサイズを16pxに設定 */
+}
+
+/* ボタンのスタイル */
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px; /* 文字のサイズを18pxに設定 */
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #45a049;
+}

@@ -61,7 +61,7 @@ public class EditController {
 	public String overrite(@RequestParam Integer shopId,
 						   @RequestParam String shopName,
 						   @RequestParam String genre,
-						   @RequestParam Integer phone,
+						   @RequestParam String phone,
 						   @RequestParam Integer takeOut,
 						   @RequestParam Integer distance) {
 		Shop shop = shopRepository.findByShopId(shopId);
@@ -80,7 +80,7 @@ public class EditController {
 	public String specifics(@RequestParam Integer shopId,
 			   @RequestParam String shopName,
 			   @RequestParam String genre,
-			   @RequestParam Integer phone,
+			   @RequestParam String phone,
 			   @RequestParam Integer takeOut,
 			   @RequestParam Integer distance, @ModelAttribute("shopForm") ShopForm shopForm,
 				@ModelAttribute("commentForm") CommentForm commentForm, Model model) {
