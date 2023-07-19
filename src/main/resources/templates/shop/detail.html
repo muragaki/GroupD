@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗詳細画面</title>
-<link rel="stylesheet" type="text/css" href="detail.css">
+<link rel="stylesheet" type="text/css" href="/detail.css">
 </head>
+<body>
 	<h3>店舗詳細</h3>
 	
 	<table th:each="shop : ${shopList}">
@@ -30,6 +31,7 @@
 			<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td></tr><br>
 			<input type="hidden" name="distance" th:value="${shop.distance}">
 
+			<hr>
 			<button type="submit">編集</button>
 			
 			</form>

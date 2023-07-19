@@ -1,0 +1,39 @@
+@charset "UTF-8";/*.fadeIn {
+animation-name: fadeInAnime;
+animation-fill-mode:backwards;
+animation-duration:3s;
+animation-iteration-count:infinite;
+animation-timing-function:ease;
+animation-delay: 0.5s;
+animation-direction:normal;
+}
+
+
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+body{
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	background-clip: text;
+	scroll-snap-type: y mandatory;
+  transition: background-color 500ms ease-in-out;
+}
+*/
+
+h3{
+	font-family: serif;
+}
+
+button:hover{filter: blur(0.8px);
+background-color: rgb(128, 255, 128);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }

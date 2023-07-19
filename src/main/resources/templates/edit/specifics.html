@@ -8,24 +8,25 @@
 	<h3>店舗詳細</h3>
 			
 		<form th:action="@{top}">
-			<p><label>店舗ID:</label>
-			[[${shop.shopId}]]<p>
+			<ul>
+			<p><li><label>店舗ID:</label>
+			[[${shop.shopId}]]<p></li>
 			
-			<p><label>店舗名:</label>
-			[[${shop.shopName}]]</p>
+			<p><li><label>店舗名:</label>
+			[[${shop.shopName}]]</li></p>
 
-			<p><label>ジャンル:</label>
-			[[${shop.genre}]]</p>
+			<p><li><label>ジャンル:</label>
+			[[${shop.genre}]]</li></p>
 			
-			<p><label>電話番号:</label>
-			[[${shop.phone}]]</p>
+			<p><li><label>電話番号:</label>
+			[[${shop.phone}]]</li></p>
 
-			<p><label>テイクアウト:</label>	
-			[[${shop.takeOut}]]</p>
+			<p><li><label>テイクアウト:</label>
+			[[${shop.takeOut}]]</li></p>
 
-			<p><label>距離:</label>			
-			[[${shop.distance}]]</p>
-			
+			<p><li><label>距離:</label>
+			[[${shop.distance}]]</li></p>
+			</ul>
 			<button type="submit">トップへ戻る</button>
 		</form>
 		
