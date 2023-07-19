@@ -94,7 +94,7 @@ public class ShopController {
 			Model model,
 			@RequestParam("image") MultipartFile image) throws IOException {
 		if(shopForm.getPhone() == null) {
-			shopForm.setPhone(0);
+			shopForm.setPhone("");
 		}
 		
 		if(shopForm.getDistance() == null) {
@@ -234,7 +234,7 @@ public class ShopController {
 	@PostMapping("save")
 	public ModelAndView saveEntity(@RequestParam("name") String shopName,
 								   @RequestParam("genre") String genre,
-								   @RequestParam("phone") Integer phone,
+								   @RequestParam("phone") String phone,
 								   @RequestParam("takeOut") Integer takeOut,
 								   @RequestParam("distance") Integer distance,
 								   @RequestParam("mapX") Integer mapX,
@@ -256,7 +256,7 @@ public class ShopController {
 			@RequestParam Integer id,
 			@RequestParam String name,
 			@RequestParam String genre,
-			@RequestParam Integer phone,
+			@RequestParam String phone,
 			@RequestParam Integer takeOut,
 			@RequestParam Integer distance) {
 		System.out.println("店舗ID:"+id);
@@ -275,7 +275,7 @@ public class ShopController {
 	public String editInfo(Model model,
 							@RequestParam String shopName,
 							@RequestParam String genre,
-							@RequestParam Integer phone,
+							@RequestParam String phone,
 							@RequestParam Integer takeOut,
 							@RequestParam Integer distance,
 							@RequestParam Integer mapX,

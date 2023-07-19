@@ -15,7 +15,7 @@ public class ShopForm {
 	
 	private Integer shopId;
 	private String shopName;
-	private Integer phone;
+	private String phone;
 	private Integer distance;
 	private String genre;
 	private Integer takeOut;
