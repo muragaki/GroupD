@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗詳細画面</title>
+<link rel="stylesheet" type="text/css" href="detail.css">
 </head>
 	<h3>店舗詳細</h3>
 	
@@ -30,6 +31,17 @@
 			<input type="hidden" name="distance" th:value="${shop.distance}">
 
 			<button type="submit">編集</button>
+			
+			</form>
+			
+			<form th:action="@{specifics}" method="post">
+				<input type="hidden" name="shopId" th:value="${shop.shopId}">
+				<input type="hidden" name="shopName"th:value="${shop.shopName}">
+				<input type="hidden" name="genre" th:value="${shop.genre}">
+				<input type="hidden" name="phone" th:value="${shop.phone}">
+				<input type="hidden" name="takeOut"th:value="${shop.takeOut}">
+				<input type="hidden" name="distance" th:value="${shop.distance}">
+				&nbsp;&nbsp;&nbsp;<button type="submit">この店の詳細</button>
 		</form>
 	</table>
 </body>
