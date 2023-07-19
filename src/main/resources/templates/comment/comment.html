@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Comment</title>
+<link rel="stylesheet" type="text/css" href="/css/comment.css">
 </head>
 <body>
 	<h1>コメント</h1>
 	<form th:action="upload" method="POST" enctype="multipart/form-data" th:object="${commentForm}">
 		<input type="hidden" name="shopId" th:value="*{shopId}"> <!-- 隠しフィールドとしてshopIdを設定 -->
-		<label for="title">タイトル</label>
+		<label for="title">料理名</label>
 		<input type="text" name="title" th:field="*{title}" required> 
 		<!-- <label for="item">　　　商品名</label> 
 		<input type="text" -->

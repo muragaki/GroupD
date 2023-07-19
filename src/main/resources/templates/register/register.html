@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>登録画面</title>
+<link rel="stylesheet" type="text/css" href="/css/register.css">
 </head>
 <body>
 	<h3>登録画面</h3>
@@ -26,9 +27,9 @@
 		<label for="takeOut">テイクアウトの可否　</label>
 		<select id="takeOut" name="takeOut" th:field="*{takeOut}">
 			<option value=0>１～３で選んでください</option>
-			<option value=1>1</option>
-			<option value=2>2</option>
-			<option value=3>3</option>
+			<option value=1>1.両方可能</option>
+			<option value=2>2.店内飲食のみ</option>
+			<option value=3>3.テイクアウトのみ</option>
 		</select><br>
 		<label for="cookingName">商品名　　　　　　　</label>
 		<input type="text" id="cookingName" name="cookingName" th:field="*{cookingName}"><br>

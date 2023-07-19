@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>店舗一覧</title>
+    <link rel="stylesheet" type="text/css" href="/css/table.css">
 </head>
 <body>
     <h1>店舗一覧</h1>
     <form th:action="@{'/access'}" method="POST" th:object="${commentForm}">
+		<label>コメントしたい店舗IDを入力してください</label>
 		<input type="text" id="shopId" name="shopId" th:field="*{shopId}" required>
         <button type="submit" name="action" value="/access">コメントする</button>
         <table>
@@ -15,11 +17,15 @@
                 <th>店舗ID</th>
             </tr>
             <tr th:each="shop : ${shopList}">
-                <td>
+                <td class="shop-info">
+					<div class="shop-name">
                     <input type="text" th:value="${shop.shopName}" readonly>
-                    <input type="text" th:value="${shop.shopId}" readonly>
+					</div>
                 </td>
-            </tr>
+                <td>		<div class="shop-id">
+                    <input type="text" th:value="${shop.shopId}" readonly>
+					</div>
+                </td</td>         </tr>
         </table>
     </form>
 </body>

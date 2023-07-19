@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/* 全体のスタイル */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-image: url('/image/tenpo.png'); /* 背景画像のパスを設定 */
+  background-size: auto; /* 画像を画面に合わせて調整 */
+  background-repeat: repeat; /* 背景画像の繰り返しを無効化 */
+  padding: 20px;
+  text-align: center;
+}
+
+/* タイトルのスタイル */
+h1 {
+  color: #990000; /* タイトルの文字色を赤に設定 */
+  margin-bottom: 20px;
+}
+
+/* フォームのスタイル */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: aqua;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影の追加 */
+}
+
+/* フォーム内のテキストボックスのスタイル */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* ボーダーボックスモデルを使用 */
+  background-color: #F0F0F0; /* テキストボックスの背景色を薄い灰色に設定 */
+  color: #333333; /* テキストボックスの文字色を黒に設定 */
+}
+
+/* コメントボタンのスタイル */
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #990000; /* コメントボタンの背景色を赤に設定 */
+  color: #ffffff; /* コメントボタンの文字色を白に設定 */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.2s; /* ホバーエフェクトの追加 */
+}
+
+/* コメントボタンのホバーエフェクト */
+button[type="submit"]:hover {
+  background-color: #770000; /* ホバーエフェクト時の背景色を濃い赤に設定 */
+}
+
+/* テーブルのスタイル */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* テーブルヘッダのスタイル */
+th {
+  background-color: #F0F8FF;
+  padding: 10px;
+  text-align: center;
+}
+
+/* テーブルデータのスタイル */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+
+/* テーブルの列ごとに背景色を交互に変更 */
+tr:nth-child(even) {
+  background-color: #F5F5F5;
+}
+
+/* 店舗名と店舗IDのセルのスタイル */
+td.shop-info {
+  display: flex;
+  align-items: center;
+}
+
+/* 店舗名のスタイル */
+td.shop-info .shop-name {
+  flex: 7;
+}
+
+/* 店舗IDのスタイル */
+td.shop-info .shop-id {
+  flex: 3;
+  text-align: right;
+}
