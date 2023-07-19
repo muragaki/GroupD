@@ -8,6 +8,7 @@ import com.example.CalLunch.domain.model.Comment;
 
 public interface CommentRepository extends JpaRepository<Comment,Integer>{
 	List<Comment> findAllByOrderByShopId();
+	List<Comment> findByShopId(Integer shopId);
 	
 
 }
