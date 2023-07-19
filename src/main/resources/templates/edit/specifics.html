@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>店舗詳細画面</title>
+<link rel="stylesheet" type="text/css" href="/static/css/detail.css">
+</head>
+	<h3>店舗詳細</h3>
+			
+		<form th:action="@{top}">
+			<p><label>店舗ID:</label>
+			[[${shop.shopId}]]<p>
+			
+			<p><label>店舗名:</label>
+			[[${shop.shopName}]]</p>
+
+			<p><label>ジャンル:</label>
+			[[${shop.genre}]]</p>
+			
+			<p><label>電話番号:</label>
+			[[${shop.phone}]]</p>
+
+			<p><label>テイクアウト:</label>	
+			[[${shop.takeOut}]]</p>
+
+			<p><label>距離:</label>			
+			[[${shop.distance}]]</p>
+			
+			<button type="submit">トップへ戻る</button>
+		</form>
+		
+		<table th:each="list : ${commentList}">
+	<colgroup span="1" style="width:150px; background-color:#F0F8FF"></colgroup>
+	<colgroup span="2" style="width:300px; background-color:#F0F8FF"></colgroup>
+	<tbody>
+			
+		</tr>
+		<tr><th>料理名　　　&emsp;</th><td th:text="${list.title}"></td></tr>
+		<tr><th>評価　　　&emsp;</th><td th:text="${list.evaluation}"></td></tr>
+		<tr><th>投稿時間　　　&emsp;</th><td th:text="${list.time}"></td></tr>
+		<tr><th>本文　　　&emsp;</th><td th:text="${list.text}"></td></tr>
+	</tbody>
+	
+	
+	</table>
+</body>
+</html>
