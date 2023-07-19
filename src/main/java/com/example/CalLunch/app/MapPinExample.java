@@ -35,6 +35,7 @@ public class MapPinExample extends JFrame {
                 int x = e.getX();
                 int y = e.getY();
                 drawPin(x, y);
+               // System.out.println("X: "+x+" "+"Y: "+y);
             }
         });
         panel.add(label);
