@@ -10,16 +10,22 @@
 	<form th:action="@{/preview}" method="POST" th:object="${shopForm}">
 		<table border="1">
 			
-				<tr><th>店舗名<input type="text" th:field="*{shopName}" readonly></th></tr>
-				<tr><th>ＣＡＬからの距離<input type="text" th:field="*{distance}" readonly></th></tr>
-				<tr><th>ジャンル<input type="text" th:field="*{genre}" readonly></th></tr>
-				<tr><th>テイクアウトの可否<input type="text" th:field="*{takeOut}" readonly></th></tr>
-				<tr><th>電話番号<input type="text" th:field="*{phone}" readonly></th></tr>
-				<tr><th>商品名<input type="text" th:field="*{cookingName}" readonly></th></tr>
-				<tr><th>価格<input type="text" th:field="*{price}" readonly></th></tr>
-				<tr><th>画像<img th:src="@{'/image/' + ${shopForm.image}}" alt="Uploaded Image" width="200px"></th></tr>
+				<tr><th class="red-text">店舗名<input type="text" th:field="*{shopName}" readonly></th></tr>
+				<tr><th class="red-text">ＣＡＬからの距離<input type="text" th:field="*{distance}" readonly>分以内</th></tr>
+				<tr><th class="red-text">ジャンル<input type="text" th:field="*{genre}" readonly></th></tr>
+				<tr th:if="${shopForm.takeOut == 2}">
+				<th class="red-text">店内飲食のみ可能</th></tr>
+				<tr th:if="${shopForm.takeOut == 1}">
+				<th class="red-text">店内飲食、テイクアウト両方可能</th></tr>
+				<tr th:if="${shopForm.takeOut == 3}">
+				<th class="red-text">テイクアウトのみ可能</th></tr>
+				<tr th:if="${shopForm.takeOut == 0}">
+				<th class="red-text">テイクアウト NO DATA</th></tr>
+				<tr><th class="red-text">電話番号<input type="text" th:field="*{phone}" readonly></th></tr>
+				<tr><th class="red-text">商品名<input type="text" th:field="*{cookingName}" readonly></th></tr>
+				<tr><th class="red-text">価格<input type="text" th:field="*{price}" readonly>円</th></tr>
+				<tr><th class="red-text">画像<img th:src="@{'/image/' + ${shopForm.image}}" alt="Uploaded Image" width="200px"></th></tr>
 				
-			</tr>
 		</table>
 		<button type="submit">登録</button>
 	</form>

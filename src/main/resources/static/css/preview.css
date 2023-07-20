@@ -6,13 +6,14 @@ body {
   text-align: center;
   background-image: url('../image/kakunin.jfif');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: right top;
+  background-size: 80%;
+  font-weight: bold;
 }
 
 /* タイトルのスタイル */
 h3 {
-  color: #333333;
+  color: red;
   margin-bottom: 20px;
   text-align: left; /* Align the h3 element to the left */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -25,9 +26,9 @@ table {
   margin: 0 auto;
   margin-top: 30px;
   border: 2px solid #4CAF50;
-  background-color: rgba(255, 255, 255, 0.7); /* 背景を透明にする */
+  background-color: rgba(255, 255, 255, 0); /* 背景を透明にする */
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 }
 
 /* テーブルのセルのスタイル */
@@ -38,6 +39,7 @@ th {
   font-weight: normal;
   text-align: left;
   color: #333333;
+  font-weight: bold;
 }
 
 /* テーブルのセルの入力フィールドのスタイル */
@@ -49,6 +51,8 @@ input[type="text"] {
   font-size: 14px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: rgba(255, 255, 255, 0); /* テキストフィールドの背景を透明にする */
+  color: red;
+  font-weight: bold;
 }
 
 /* 画像のスタイル */
@@ -76,4 +80,8 @@ button {
 
 button:hover {
   background-color: #45a049;
-}}
+}
+/* テーブルのセルの特定の文字を赤色にするスタイル */
+th.red-text {
+  color: red;
+}
