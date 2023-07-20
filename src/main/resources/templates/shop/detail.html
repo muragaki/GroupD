@@ -13,6 +13,7 @@
 	<colgroup span="2" style="width:300px; background-color:rgb(255, 255, 255)">
 			
 		<form th:action="@{input}" method="post">
+			
 			<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td></tr>
 			<input type="hidden" name="id" th:value="${shop.shopId}">
 		
@@ -24,11 +25,15 @@
 	
 			<tr><th>電話番号　　&emsp;</th><td th:text="${shop.phone}"></td></tr>
 			<input type="hidden" name="phone" th:value="${shop.phone}">
-	
-			<tr><th>テイクアウト&emsp;</th><td th:text="${shop.takeOut}"></td></tr>
+			
+			<tr th:if="${shop.takeOut == 1}"><th>テイクアウト&emsp;</th><td th:text="'店内・テイクアウト両方可'"></td></tr>
+			<tr th:if="${shop.takeOut == 2}"><th>テイクアウト&emsp;</th><td th:text="'店内飲食可'"></td></tr>
+			<tr th:if="${shop.takeOut == 3}"><th>テイクアウト&emsp;</th><td th:text="'テイクアウト可'"></td></tr>
+
+			
 			<input type="hidden" name="takeOut"th:value="${shop.takeOut}">
 	
-			<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance}"></td></tr><br>
+			<tr><th>距離　　　　&emsp;</th><td th:text="${shop.distance+'分'}"></td></tr><br>
 			<input type="hidden" name="distance" th:value="${shop.distance}">
 
 			<hr>

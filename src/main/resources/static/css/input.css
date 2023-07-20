@@ -7,3 +7,7 @@ body{
 label{
 	color: white;
 }
+
+.text-size {
+  font-size: 12px;
+}
