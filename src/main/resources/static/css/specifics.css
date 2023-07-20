@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body{
+	background-image:url(../image/restaurant-449952_1280.jpg);
+	background-position: 20px -180px;
+}
+
+.container{
+	display: flex;
+}
+
+.left-column{
+	flex: 1;
+}
+
+.right-column{
+	flex: 1;
+}
+
+ul{
+	background-color: rgb(227, 227, 227, 0.7);
+/*	border: 2px rgb(64, 0, 0) dashed; */
+	width: 300px;
+	list-style-type: none;
+	padding: 0;
+}
+
+li{
+	margin-bottom: 10px;
+}
+ul li{
+	font-family: "serif";
+}
+
+h2{
+	color:white;
+}
+
+h3{
+	color:white;
+}
