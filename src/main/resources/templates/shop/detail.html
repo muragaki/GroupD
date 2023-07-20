@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗詳細画面</title>
-<link rel="stylesheet" type="text/css" href="/css/detail.css">
+<link rel="stylesheet" type="text/css" th:href="@{css/detail.css}">
 </head>
 <body>
 	<h3>店舗詳細</h3>
 	
 	<table th:each="shop : ${shopList}">
-	<colgroup span="1" style="width:150px; background-color:#F0F8FF">
-	<colgroup span="2" style="width:300px; background-color:#F0F8FF">
+	<colgroup span="1" style="width:150px; background-color:rgb(255, 255, 255)">
+	<colgroup span="2" style="width:300px; background-color:rgb(255, 255, 255)">
 			
 		<form th:action="@{input}" method="post">
 			<tr><th>店舗ID　　　&emsp;</th><td th:text="${shop.shopId}"></td></tr>

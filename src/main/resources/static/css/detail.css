@@ -1,4 +1,10 @@
-@charset "UTF-8";/*.fadeIn {
+@charset "UTF-8";
+/*
+h3 {
+	font-family: serif;
+}
+
+.fadeIn {
 animation-name: fadeInAnime;
 animation-fill-mode:backwards;
 animation-duration:3s;
@@ -26,14 +32,16 @@ body{
 	scroll-snap-type: y mandatory;
   transition: background-color 500ms ease-in-out;
 }
-*/
-
-h3{
-	font-family: serif;
-}
 
 button:hover{filter: blur(0.8px);
-background-color: rgb(128, 255, 128);
+background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     cursor: pointer;
   }
+  */
+body{
+	background-image: url(../image/shop_open_12435.jpg);
+	background-repeat: repeat-y;
+	background-color:rgb(198, 255, 255);
+	
+}

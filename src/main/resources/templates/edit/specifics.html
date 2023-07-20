@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗詳細画面</title>
-<link rel="stylesheet" type="text/css" href="/static/css/detail.css">
+<link rel="stylesheet" type="text/css" th:href="@{css/specifics.css}">
 </head>
-	<h3>店舗詳細</h3>
-			
-		<form th:action="@{top}">
+	<h2>店舗詳細</h2>
+		
+	<div class="container">
+		<div class="left-column">
+			<form th:action="@{top}">
 			<ul>
 			<p><li><label>店舗ID:</label>
 			[[${shop.shopId}]]<p></li>
@@ -21,39 +23,42 @@
 			<p><li><label>電話番号:</label>
 			[[${shop.phone}]]</li></p>
 
-<<<<<<< HEAD
 			<p><li><label>テイクアウト:</label>
 			[[${shop.takeOut}]]</li></p>
-=======
-			<p><label>テイクアウトの可否:</label>	
-			[[${shop.takeOut}]]</p>
->>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git
 
-<<<<<<< HEAD
+			<p><li><label>テイクアウトの可否:</label>	
+			[[${shop.takeOut}]]</li></p>
+			
 			<p><li><label>距離:</label>
 			[[${shop.distance}]]</li></p>
+
+			<p><li><label>Calからの距離:</label>			
+			[[${shop.distance}]]</li></p>
 			</ul>
-=======
-			<p><label>Calからの距離:</label>			
-			[[${shop.distance}]]</p>
 			
->>>>>>> branch 'master' of https://github.com/muragaki/GroupD.git
 			<button type="submit">トップへ戻る</button>
 		</form>
+		</div>
 		
-		<table th:each="list : ${commentList}">
-	<colgroup span="1" style="width:150px; background-color:#F0F8FF"></colgroup>
-	<colgroup span="2" style="width:300px; background-color:#F0F8FF"></colgroup>
-	<tbody>
+	<div class="right-column">
+	<table class="comment-list" th:each="list : ${commentList}">
+	
+	<h3>コメント</h3>
+		<ul>
+			<p><li><label>料理名:</label>
+			[[${list.title}]]</li></p>
 			
-		</tr>
-		<tr><th>料理名　　　&emsp;</th><td th:text="${list.title}"></td></tr>
-		<tr><th>評価　　　&emsp;</th><td th:text="${list.evaluation}"></td></tr>
-		<tr><th>投稿時間　　　&emsp;</th><td th:text="${list.time}"></td></tr>
-		<tr><th>本文　　　&emsp;</th><td th:text="${list.text}"></td></tr>
-	</tbody>
-	
-	
+			<p><li><label>評価:</label>
+			[[${list.evaluation}]]</li></p>
+			
+			<p><li><label>投稿時間:</label>
+			[[${list.time}]]</li></p>
+			
+			<p><li><label>本文:</label>
+			[[${list.text}]]</li></p>
+		</ul>	
 	</table>
+	</div>
+	</div>
 </body>
 </html>
